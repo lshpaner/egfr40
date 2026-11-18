@@ -32,6 +32,18 @@ def test_matches_ckdpcrisk_site():
     assert round(egfr40_risk(**SITE_CASE), 3) == 0.166
 
 
+@pytest.mark.parametrize("case,expected", [
+    # Diabetes, eGFR >= 60, oral meds (verified on the site 2026-11-18: 3.2%)
+    (dict(age=60, male=1, egfr=80, uacr=30, sbp=140, bp_meds=1, hf=0, chd=0, afib=0,
+          smoking="current", bmi=30, dm=True, hba1c=8, oral_dm=1, insulin=0), 0.032),
+    # Diabetes, eGFR >= 60, insulin (verified on the site 2026-11-18: 12.1%)
+    (dict(age=45, male=0, egfr=100, uacr=300, sbp=150, bp_meds=1, hf=0, chd=0, afib=1,
+          smoking="never", bmi=35, dm=True, hba1c=9, oral_dm=0, insulin=1), 0.121),
+])
+def test_matches_ckdpcrisk_site_dm_high_egfr(case, expected):
+    assert round(egfr40_risk(**case), 3) == expected
+
+
 def test_dm_is_required():
     kw = {k: v for k, v in SITE_CASE.items() if k not in ("dm", "hba1c", "oral_dm", "insulin")}
     with pytest.raises(TypeError):

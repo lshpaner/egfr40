@@ -111,7 +111,7 @@ acr_mg_mmol_to_mg_g(3.0)                # 26.5 mg/g
 
 ## NHANES Example
 
-The repository includes a pipeline that applies the equation to NHANES 2017–March 2020:
+The repository includes a pipeline that applies the equation to NHANES 2017 - March 2020:
 
 ```bash
 make data_gen     # fetch raw NHANES files into data/raw/

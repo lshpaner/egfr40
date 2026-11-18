@@ -40,7 +40,7 @@ predictor after the centering and scaling shown below.
 
 Every coefficient matches the odds ratios reported in the paper's Tables 2 and
 3 (``exp(β)`` agrees to two decimals), and the package reproduces the online
-calculator in all four strata.
+calculator in the diabetes strata (eGFR <60 and ≥60).
 
 The eGFR 60 boundary
 --------------------

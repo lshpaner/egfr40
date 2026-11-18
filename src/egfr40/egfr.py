@@ -2,20 +2,30 @@ import numpy as np
 
 
 def ckd_epi_2021(scr, age, male):
-    """eGFR from serum creatinine, CKD-EPI 2021 (race-free) equation.
+    """eGFR from serum creatinine, using the CKD-EPI 2021 (race-free) equation.
 
     Inker LA et al. N Engl J Med 2021;385:1737-1749.
 
     Parameters
     ----------
-    scr : float or array   serum creatinine, mg/dL
-    age : float or array   years
-    male : int or array    1 = male, 0 = female
+    scr : float or array-like
+        Serum creatinine in mg/dL.
+    age : float or array-like
+        Age in years.
+    male : int or array-like
+        1 = male, 0 = female.
 
     Returns
     -------
-    eGFR in mL/min/1.73 m^2 (float or ndarray). NaN where inputs are missing.
+    float or numpy.ndarray
+        eGFR in mL/min/1.73 m^2. NaN where inputs are missing.
+
+    Examples
+    --------
+    >>> round(ckd_epi_2021(scr=1.0, age=50, male=1), 1)
+    91.7
     """
+
     scr = np.asarray(scr, dtype=float)
     age = np.asarray(age, dtype=float)
     male = np.asarray(male, dtype=float)

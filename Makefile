@@ -34,6 +34,10 @@ test:
 coverage:
 	$(PYTHON_INTERPRETER) -m pytest tests/ --cov=src/egfr40 --cov-report=term-missing
 
+## Build the Sphinx docs into docs/_build/html
+docs:
+	$(MAKE) -C docs html
+
 ## Fetch raw NHANES 2017-March 2020 files into data/raw
 data_gen:
 	$(PYTHON_INTERPRETER) data_gen.py --csv
@@ -49,10 +53,10 @@ build:
 
 ## Remove build artifacts and caches
 clean:
-	rm -rf build dist *.egg-info src/*.egg-info .pytest_cache
+	rm -rf build dist *.egg-info src/*.egg-info .pytest_cache docs/_build
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 
-.PHONY: venv install test coverage data_gen preprocess build clean help
+.PHONY: venv install test coverage docs data_gen preprocess build clean help
 
 #################################################################################
 # Self Documenting Commands                                                     #

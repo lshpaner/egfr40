@@ -29,9 +29,11 @@ classifiers = [
 [project.optional-dependencies]
 dev = ["pytest>=7", "pytest-cov", "build", "twine"]
 nhanes = ["requests", "typer", "pyarrow"]
+docs = ["sphinx", "sphinx-rtd-theme", "sphinx-copybutton"]
 
 [project.urls]
 Homepage = "https://github.com/lshpaner/egfr40"
+Documentation = "https://lshpaner.github.io/egfr40"
 Issues = "https://github.com/lshpaner/egfr40/issues"
 
 [tool.setuptools.packages.find]

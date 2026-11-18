@@ -97,38 +97,73 @@ def egfr40_risk(
     insulin=0,
     explain=False,
 ):
-    """3-year probability of >=40% eGFR decline or kidney failure.
+    """3-year probability of a >=40% eGFR decline or kidney failure.
 
     Parameters
     ----------
-    age : float          years
-    male : int           1 = male, 0 = female
-    egfr : float         CKD-EPI 2021, mL/min/1.73 m^2
-    uacr : float         urine albumin-to-creatinine ratio, mg/g
-    sbp : float          systolic blood pressure, mmHg
-    bp_meds : int        antihypertensive medication use (1/0)
-    hf, chd, afib : int  history of heart failure, CHD, atrial fibrillation (1/0)
-    smoking : str        'never', 'former', or 'current'
-    bmi : float          kg/m^2
-    dm : bool            diabetes (required: selects the diabetes or no-diabetes model)
-    hba1c : float        %, required when dm is True
-    oral_dm : int        oral diabetes medication (1/0)
-    insulin : int        insulin use (1/0)
-    explain : bool       return a breakdown instead of just the risk
+    age : float
+        Age in years.
+    male : int
+        1 = male, 0 = female.
+    egfr : float
+        eGFR in mL/min/1.73 m^2, from the CKD-EPI 2021 creatinine equation.
+    uacr : float
+        Urine albumin-to-creatinine ratio in mg/g. Must be greater than 0.
+    sbp : float
+        Systolic blood pressure in mmHg.
+    bp_meds : int
+        Antihypertensive medication use (1/0).
+    hf : int
+        History of heart failure (1/0).
+    chd : int
+        History of coronary heart disease (1/0).
+    afib : int
+        History of atrial fibrillation (1/0).
+    smoking : {'never', 'former', 'current'}
+        Smoking status.
+    bmi : float
+        Body mass index in kg/m^2.
+    dm : bool
+        Diabetes. Required: selects the diabetes or no-diabetes model.
+    hba1c : float, optional
+        HbA1c in percent. Required when ``dm`` is True.
+    oral_dm : int, default 0
+        Oral diabetes medication (1/0). Used only when ``dm`` is True.
+    insulin : int, default 0
+        Insulin use (1/0). Used only when ``dm`` is True.
+    explain : bool, default False
+        Return a breakdown instead of just the risk.
 
     Returns
     -------
-    float in [0, 1]. At eGFR == 60 the two strata are averaged, as on
-    ckdpcrisk.org.
+    float or dict
+        The 3-year probability, between 0 and 1. At eGFR == 60 the two eGFR
+        strata are averaged, as on ckdpcrisk.org.
 
-    With explain=True, a dict: risk, stratum, intercept, linear_predictor
-    (log-odds) and contributions (each term's log-odds contribution, largest
-    first; positive raises risk relative to the reference patient: age 60,
-    eGFR at the stratum center (85 or 45), uACR 10 mg/g, SBP 130, BMI 30,
-    HbA1c 7%, never smoker, no BP or diabetes meds, and HF and CHD at their
-    centering values of 0.05 and 0.15, so a patient without HF or CHD gets a
-    small negative contribution for each). At eGFR == 60, a dict with the averaged risk and both strata.
+        With ``explain=True``, a dict with ``risk``, ``stratum``,
+        ``intercept``, ``linear_predictor`` (log-odds) and ``contributions``
+        (each predictor's log-odds contribution, largest first). Positive
+        contributions raise risk relative to the reference patient: age 60,
+        eGFR at the stratum center (85 or 45), uACR 10 mg/g, SBP 130, BMI 30,
+        HbA1c 7%, never smoker, no BP or diabetes medication, and HF and CHD at
+        their centering values of 0.05 and 0.15 (so a patient without HF or CHD
+        gets a small negative contribution for each). At eGFR == 60, a dict with
+        the averaged ``risk`` and both breakdowns under ``strata``.
+
+    Raises
+    ------
+    ValueError
+        If ``hba1c`` is missing for a patient with diabetes, ``uacr`` is not
+        positive, or ``smoking`` is not a recognized value.
+
+    Examples
+    --------
+    >>> egfr40_risk(age=70, male=1, egfr=40, uacr=150, sbp=140, bp_meds=1,
+    ...             hf=0, chd=1, afib=1, smoking="former", bmi=28,
+    ...             dm=True, hba1c=7)  # doctest: +ELLIPSIS
+    0.166...
     """
+
     if dm and hba1c is None:
         raise ValueError("hba1c is required when dm=True")
     if uacr <= 0:
@@ -229,27 +264,56 @@ def add_egfr40_risk_col(
     risk_col="egfr40_3year",
     copy=True,
 ):
-    """Add the CKD-PC 3-year >=40% eGFR decline risk to every row of a DataFrame.
+    """Add the 3-year >=40% eGFR decline risk to every row of a DataFrame.
 
-    Each row is scored with its own stratum (eGFR >= 60 or < 60, with or
-    without diabetes). Rows at exactly eGFR 60 get the average of the two
-    eGFR strata, as on ckdpcrisk.org.
+    Each row is scored with its own stratum (eGFR >=60 or <60, with or without
+    diabetes). Rows at exactly eGFR 60 get the average of the two eGFR strata,
+    as on ckdpcrisk.org.
 
-    Column expectations
-    -------------------
-    sex      : 'male'/'female' (or 'm'/'f'), or 1 = male / 0 = female
-    yes/no   : bp_meds, hf, chd, afib, dm, oral_dm, insulin as 1/0 or yes/no
-    smoking  : 'never', 'former', or 'current'
-    uACR     : mg/g; eGFR: CKD-EPI 2021; HbA1c: %
-
-    Missing values: a row with any required input missing gets NaN.
-    HbA1c, oral_dm and insulin are only required for rows with dm == 1.
-    Missing oral_dm / insulin in diabetic rows are treated as NaN (not 0).
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        One row per patient.
+    age_col, sex_col, egfr_col, uacr_col, sbp_col, bp_meds_col : str
+        Column names for age (years), sex, eGFR (CKD-EPI 2021), uACR (mg/g),
+        systolic BP (mmHg) and antihypertensive medication use.
+    hf_col, chd_col, afib_col : str
+        Column names for history of heart failure, coronary heart disease and
+        atrial fibrillation.
+    smoking_col, bmi_col : str
+        Column names for smoking status and BMI (kg/m^2).
+    dm_col, hba1c_col, oral_dm_col, insulin_col : str
+        Column names for diabetes, HbA1c (%), oral diabetes medication and
+        insulin. The last three are used only for rows with diabetes and may
+        be absent from ``df`` if no row has diabetes.
+    risk_col : str, default "egfr40_3year"
+        Name of the new risk column.
+    copy : bool, default True
+        Work on a copy and leave ``df`` unchanged.
 
     Returns
     -------
-    DataFrame with a new column `risk_col` (probability in [0, 1]).
+    pandas.DataFrame
+        ``df`` (or a copy) with ``risk_col`` added, holding probabilities
+        between 0 and 1.
+
+    Notes
+    -----
+    Sex accepts ``"male"``/``"female"``, ``"m"``/``"f"`` or 1/0. Yes/no
+    columns (BP medication, HF, CHD, AFib, diabetes, oral diabetes medication,
+    insulin) accept 1/0 or ``"yes"``/``"no"``. Smoking accepts ``"never"``,
+    ``"former"`` or ``"current"``.
+
+    A row with any required input missing gets ``NaN``. HbA1c, oral diabetes
+    medication and insulin are required only for rows with diabetes; missing
+    values there give ``NaN`` rather than being treated as 0.
+
+    Raises
+    ------
+    ValueError
+        If a smoking or yes/no column contains an unrecognized value.
     """
+
     out = df.copy() if copy else df
 
     smk = out[smoking_col].astype(str).str.strip().str.lower()

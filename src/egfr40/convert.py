@@ -27,22 +27,60 @@ _DIPSTICK_ALIASES = {
 
 
 def acr_mg_mmol_to_mg_g(acr):
-    """ACR in mg/mmol -> mg/g."""
+    """Convert uACR from mg/mmol to mg/g.
+
+    Parameters
+    ----------
+    acr : float or array-like
+        uACR in mg/mmol.
+
+    Returns
+    -------
+    numpy.ndarray
+        uACR in mg/g (1 mg/mmol = 8.84 mg/g).
+    """
     return np.asarray(acr, dtype=float) * MG_G_PER_MG_MMOL
 
 
 def acr_mg_g_to_mg_mmol(acr):
-    """ACR in mg/g -> mg/mmol."""
+    """Convert uACR from mg/g to mg/mmol.
+
+    Parameters
+    ----------
+    acr : float or array-like
+        uACR in mg/g.
+
+    Returns
+    -------
+    numpy.ndarray
+        uACR in mg/mmol.
+    """
     return np.asarray(acr, dtype=float) / MG_G_PER_MG_MMOL
 
 
 def pcr_to_acr(pcr):
-    """Predicted ACR (mg/g) from urine protein-to-creatinine ratio (PCR, mg/g).
+    """Estimate uACR from the urine protein-to-creatinine ratio (uPCR).
 
-    pACR = exp(5.3920 + 0.3072 log(min(PCR/50, 1))
-                      + 1.5793 log(max(min(PCR/500, 1), 0.1))
-                      + 1.1266 log(max(PCR/500, 1)))
+    Uses the crude equation of Sumida et al. (2020):
+    exp(5.3920 + 0.3072 log(min(PCR/50, 1))
+    + 1.5793 log(max(min(PCR/500, 1), 0.1)) + 1.1266 log(max(PCR/500, 1))).
+
+    Parameters
+    ----------
+    pcr : float or array-like
+        uPCR in mg/g.
+
+    Returns
+    -------
+    float or numpy.ndarray
+        Estimated uACR in mg/g. NaN for missing or non-positive uPCR.
+
+    Examples
+    --------
+    >>> round(pcr_to_acr(150), 1)
+    32.8
     """
+
     pcr = np.asarray(pcr, dtype=float)
     with np.errstate(divide="ignore", invalid="ignore"):
         out = np.exp(
@@ -69,11 +107,32 @@ def _dipstick_key(value):
 
 
 def dipstick_to_acr(category):
-    """Predicted ACR (mg/g) from a urine dipstick protein category.
+    """Estimate uACR from a urine dipstick protein category.
 
-    Categories: 'negative', 'trace', '+', '++', '>++'
-    (also accepts 'neg', '1+', '2+', '3+', '4+', '+++').
+    Uses the crude equation of Sumida et al. (2020).
+
+    Parameters
+    ----------
+    category : str or list of str
+        ``"negative"``, ``"trace"``, ``"+"``, ``"++"`` or ``">++"``. Also
+        accepts ``"neg"``, ``"1+"``, ``"2+"``, ``"3+"``, ``"4+"`` and ``"+++"``.
+
+    Returns
+    -------
+    float or numpy.ndarray
+        Estimated uACR in mg/g. NaN for missing values.
+
+    Raises
+    ------
+    ValueError
+        If a category is not recognized.
+
+    Examples
+    --------
+    >>> round(dipstick_to_acr("++"), 1)
+    337.4
     """
+
     def one(v):
         k = _dipstick_key(v)
         return np.nan if k is None else float(np.exp(2.4738 + _DIPSTICK[k]))

@@ -120,6 +120,10 @@ make preprocess   # merge, compute eGFR, recode inputs -> data/processed/
 
 See `notebooks/01_score_nhanes.ipynb` for cohort scoring and survey-weighted summaries.
 
+## 📄 Official Documentation
+
+https://lshpaner.github.io/egfr40
+
 ## 🌐 Author Website
 
 https://www.leonshpaner.com

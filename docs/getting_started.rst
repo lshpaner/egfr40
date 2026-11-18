@@ -37,3 +37,28 @@ Library overview
 
    import egfr40
    help(egfr40)   # prints the logo and a summary of the library
+
+Table of Contents
+-----------------
+
+**Getting Started**
+
+- :doc:`index`
+- :doc:`getting_started`
+
+**Documentation**
+
+- :doc:`usage_guide`
+- :doc:`inputs`
+- :doc:`egfr`
+- :doc:`conversions`
+- :doc:`nhanes`
+- :doc:`api`
+
+**About egfr40**
+
+- :doc:`model`
+- :doc:`acknowledgements`
+- :doc:`citing`
+- :doc:`changelog`
+- :doc:`references`

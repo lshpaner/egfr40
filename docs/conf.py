@@ -37,15 +37,6 @@ html_theme_options = {"navigation_depth": 3, "collapse_navigation": False}
 copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_prompt_is_regexp = True
 
-# Logo at the top of every page, 200px like kfre; right-click and drag disabled
-rst_prolog = """
-.. raw:: html
-
-   <img src="_static/egfr40_logo.svg" alt="egfr40 Python library" width="200"
-        class="egfr40-logo" draggable="false" oncontextmenu="return false;">
-
-"""
-
 rst_epilog = f"""
 .. |version_str| replace:: {release}
 """

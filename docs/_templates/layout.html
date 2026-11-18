@@ -1,0 +1,7 @@
+{% extends "!layout.html" %}
+{#- Logo at the top of every page, including search, index and source pages -#}
+{% block document %}
+<img src="{{ pathto('_static/egfr40_logo.svg', 1) }}" alt="egfr40 Python library"
+     width="200" class="egfr40-logo" draggable="false" oncontextmenu="return false;">
+{{ super() }}
+{% endblock %}

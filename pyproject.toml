@@ -28,7 +28,7 @@ classifiers = [
 
 [project.optional-dependencies]
 dev = ["pytest>=7", "pytest-cov", "build", "twine", "nbstripout"]
-nhanes = ["requests", "typer", "pyarrow", "openpyxl", "ipykernel"]
+nhanes = ["requests", "typer", "pyarrow", "openpyxl", "ipykernel", "model_metrics"]
 docs = ["sphinx", "sphinx-rtd-theme", "sphinx-copybutton", "myst-nb", "ipykernel"]
 
 [project.urls]

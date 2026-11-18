@@ -118,3 +118,23 @@ def test_dataframe_does_not_modify_input_by_default():
     df = _synthetic_cohort(n=5)
     add_egfr40_risk_col(df)
     assert "egfr40_3year" not in df.columns
+
+
+def test_explain_matches_risk_and_sums():
+    out = egfr40_risk(**SITE_CASE, explain=True)
+    assert out["risk"] == pytest.approx(egfr40_risk(**SITE_CASE))
+    assert out["stratum"] == "DM, eGFR <60"
+    lp = out["intercept"] + sum(out["contributions"].values())
+    assert lp == pytest.approx(out["linear_predictor"])
+    assert 1 / (1 + math.exp(-lp)) == pytest.approx(out["risk"])
+
+
+def test_explain_sorted_by_magnitude():
+    c = list(egfr40_risk(**SITE_CASE, explain=True)["contributions"].values())
+    assert [abs(v) for v in c] == sorted((abs(v) for v in c), reverse=True)
+
+
+def test_explain_at_egfr_60():
+    out = egfr40_risk(**{**SITE_CASE, "egfr": 60}, explain=True)
+    assert len(out["strata"]) == 2
+    assert out["risk"] == pytest.approx(egfr40_risk(**{**SITE_CASE, "egfr": 60}))

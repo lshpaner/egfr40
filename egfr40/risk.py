@@ -36,34 +36,47 @@ _COEFS = {
 }
 
 
-def _stratum_risk(high_egfr, dm, x):
+def _contributions(high_egfr, dm, x):
+    """Each term's contribution to the linear predictor (log-odds) for one stratum."""
     b = _COEFS[(high_egfr, dm)]
     egfr_center = 85 if high_egfr else 45
     sbp_c = (x["sbp"] - 130) / 20
-
-    lp = (
-        b["const"]
-        + b["age"] * (x["age"] - 60) / 10
-        + b["male"] * (x["male"] - 0.5)
-        + b["egfr"] * (x["egfr"] - egfr_center) / 5
-        + b["lnacr"] * math.log(x["uacr"] / 10)
-        + b["sbp"] * sbp_c
-        + b["bpmed"] * x["bp_meds"]
-        + b["sbp_bpmed"] * sbp_c * x["bp_meds"]
-        + b["hf"] * (x["hf"] - 0.05)
-        + b["chd"] * (x["chd"] - 0.15)
-        + b["afib"] * x["afib"]
-        + b["current_smoker"] * (x["smoking"] == "current")
-        + b["former_smoker"] * (x["smoking"] == "former")
-        + b["bmi"] * (x["bmi"] - 30) / 5
-    )
+    terms = {
+        "age": b["age"] * (x["age"] - 60) / 10,
+        "sex": b["male"] * (x["male"] - 0.5),
+        "egfr": b["egfr"] * (x["egfr"] - egfr_center) / 5,
+        "uacr": b["lnacr"] * math.log(x["uacr"] / 10),
+        "sbp": b["sbp"] * sbp_c,
+        "bp_meds": b["bpmed"] * x["bp_meds"],
+        "sbp_x_bp_meds": b["sbp_bpmed"] * sbp_c * x["bp_meds"],
+        "hf": b["hf"] * (x["hf"] - 0.05),
+        "chd": b["chd"] * (x["chd"] - 0.15),
+        "afib": b["afib"] * x["afib"],
+        "smoking": (b["current_smoker"] * (x["smoking"] == "current")
+                    + b["former_smoker"] * (x["smoking"] == "former")),
+        "bmi": b["bmi"] * (x["bmi"] - 30) / 5,
+    }
     if dm:
-        lp += (
-            b["hba1c"] * (x["hba1c"] - 7)
-            + b["oral_dm"] * x["oral_dm"]
-            + b["insulin"] * x["insulin"]
-        )
-    return 1 / (1 + math.exp(-lp))
+        terms["hba1c"] = b["hba1c"] * (x["hba1c"] - 7)
+        terms["oral_dm"] = b["oral_dm"] * x["oral_dm"]
+        terms["insulin"] = b["insulin"] * x["insulin"]
+    return b["const"], terms
+
+
+def _stratum_explain(high_egfr, dm, x):
+    const, terms = _contributions(high_egfr, dm, x)
+    lp = const + sum(terms.values())
+    return {
+        "risk": 1 / (1 + math.exp(-lp)),
+        "stratum": f"{'DM' if dm else 'No DM'}, eGFR {'>=60' if high_egfr else '<60'}",
+        "intercept": const,
+        "linear_predictor": lp,
+        "contributions": dict(sorted(terms.items(), key=lambda kv: -abs(kv[1]))),
+    }
+
+
+def _stratum_risk(high_egfr, dm, x):
+    return _stratum_explain(high_egfr, dm, x)["risk"]
 
 
 def egfr40_risk(
@@ -82,6 +95,7 @@ def egfr40_risk(
     hba1c=None,
     oral_dm=0,
     insulin=0,
+    explain=False,
 ):
     """3-year probability of >=40% eGFR decline or kidney failure.
 
@@ -100,11 +114,20 @@ def egfr40_risk(
     hba1c : float        %, required when dm is True
     oral_dm : int        oral diabetes medication (1/0)
     insulin : int        insulin use (1/0)
+    explain : bool       return a breakdown instead of just the risk
 
     Returns
     -------
     float in [0, 1]. At eGFR == 60 the two strata are averaged, as on
     ckdpcrisk.org.
+
+    With explain=True, a dict: risk, stratum, intercept, linear_predictor
+    (log-odds) and contributions (each term's log-odds contribution, largest
+    first; positive raises risk relative to the reference patient: age 60,
+    eGFR at the stratum center (85 or 45), uACR 10 mg/g, SBP 130, BMI 30,
+    HbA1c 7%, never smoker, no BP or diabetes meds, and HF and CHD at their
+    centering values of 0.05 and 0.15, so a patient without HF or CHD gets a
+    small negative contribution for each). At eGFR == 60, a dict with the averaged risk and both strata.
     """
     if dm and hba1c is None:
         raise ValueError("hba1c is required when dm=True")
@@ -120,8 +143,13 @@ def egfr40_risk(
     )
 
     if egfr == 60:
-        return (_stratum_risk(True, dm, x) + _stratum_risk(False, dm, x)) / 2
-    return _stratum_risk(egfr > 60, dm, x)
+        hi, lo = _stratum_explain(True, dm, x), _stratum_explain(False, dm, x)
+        risk = (hi["risk"] + lo["risk"]) / 2
+        if explain:
+            return {"risk": risk, "stratum": "averaged at eGFR 60", "strata": [hi, lo]}
+        return risk
+    out = _stratum_explain(egfr > 60, dm, x)
+    return out if explain else out["risk"]
 
 
 def _to_binary(s, name):

@@ -50,6 +50,35 @@ from egfr40 import ckd_epi_2021
 ckd_epi_2021(scr=1.2, age=70, male=1)  # mL/min/1.73 m^2, race-free 2021 equation
 ```
 
+### Why is a patient's risk high?
+
+```python
+out = egfr40_risk(
+    age=70, male=1, egfr=40, uacr=150, sbp=140, bp_meds=1,
+    hf=0, chd=1, afib=1, smoking="former", bmi=28,
+    dm=True, hba1c=7, explain=True,
+)
+out["risk"]            # 0.166
+out["contributions"]   # {'uacr': 1.261, 'chd': 0.185, 'age': -0.172, ...}
+```
+
+`contributions` gives each term's effect on the log-odds, largest first, relative to the
+model's reference patient (age 60, uACR 10 mg/g, SBP 130, BMI 30, eGFR at the stratum
+center). Positive values raise risk.
+
+### Converting other urine measures to ACR
+
+```python
+from egfr40 import pcr_to_acr, dipstick_to_acr, acr_mg_mmol_to_mg_g
+
+pcr_to_acr(150)            # protein-to-creatinine ratio (mg/g) -> ACR (mg/g)
+dipstick_to_acr("++")      # dipstick protein category -> ACR (mg/g)
+acr_mg_mmol_to_mg_g(3.0)   # 26.5 mg/g
+```
+
+PCR and dipstick conversions use the crude equations of Sumida et al., *Ann Intern Med*
+2020 (doi:10.7326/M20-0529), the same conversions used to develop the model.
+
 ### A whole cohort
 
 ```python

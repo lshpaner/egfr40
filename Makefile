@@ -6,7 +6,7 @@ PROJECT_NAME = egfr40
 PYTHON_VERSION = 3.12
 PYTHON_INTERPRETER = python
 CONDA_ENV = conda_312
-VENV_DIR = venv
+VENV_DIR = egfr40_venv
 
 #################################################################################
 # ENVIRONMENT                                                                   #

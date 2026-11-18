@@ -1,0 +1,18 @@
+# Pinned environment for development and the NHANES example.
+# The library's own (loose) dependencies live in pyproject.toml.
+#   pip install -r requirements.txt
+#   pip install -e . --no-deps
+
+# Core
+numpy==2.5.5
+pandas==3.1.1
+
+# NHANES example (data_gen.py, preprocessing.py)
+pyarrow==26.0.1
+requests==2.34.2
+typer==0.29.2
+
+# Development
+pytest==9.2.0
+build==1.6.1
+twine==7.0.0

@@ -43,7 +43,7 @@ def fetch_xpt(name: str) -> pd.DataFrame:
     url = f"{BASE_URL}/{name}.xpt"
     resp = requests.get(url, headers=HEADERS, timeout=120)
     resp.raise_for_status()
-    return pd.read_sas(io.BytesIO(resp.content), format="xport")
+    return pd.read_sas(io.BytesIO(resp.content), format="xport", encoding="infer")
 
 
 @app.command()

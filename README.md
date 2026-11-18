@@ -38,6 +38,14 @@ egfr40_risk(
 # 0.166
 ```
 
+### eGFR
+
+```python
+from egfr40 import ckd_epi_2021
+
+ckd_epi_2021(scr=1.2, age=70, male=1)  # mL/min/1.73 m^2, race-free 2021 equation
+```
+
 ### A whole cohort
 
 ```python
@@ -117,7 +125,22 @@ pip install -e ".[nhanes]"
 make data_gen
 ```
 
-Files are saved to `data/raw/` (gitignored). NHANES does not record atrial fibrillation.
+Files are saved to `data/raw/` (gitignored). Then build the analysis file:
+
+```bash
+make preprocess
+```
+
+This merges the files, computes CKD-EPI 2021 eGFR, recodes each predictor, and applies
+the inclusion criteria (age 20-80, not pregnant, eGFR >= 15, complete inputs). Output:
+`data/processed/nhanes_egfr40.parquet`.
+
+NHANES-specific choices:
+
+- Atrial fibrillation is not collected, so it is set to 0.
+- CHD includes self-reported coronary heart disease or heart attack.
+- Diabetes is self-reported diagnosis, diabetes medication, or HbA1c >= 6.5%.
+- SBP is the mean of the available oscillometric readings.
 
 ## Citation
 

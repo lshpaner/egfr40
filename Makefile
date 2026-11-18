@@ -34,6 +34,10 @@ test:
 data_gen:
 	$(PYTHON_INTERPRETER) data_gen.py --csv
 
+## Merge and recode NHANES into data/processed/nhanes_egfr40.parquet
+preprocess:
+	$(PYTHON_INTERPRETER) preprocessing.py --csv
+
 ## Build sdist and wheel into dist/
 build:
 	$(PYTHON_INTERPRETER) -m pip install --upgrade build
@@ -44,7 +48,7 @@ clean:
 	rm -rf build dist *.egg-info .pytest_cache
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 
-.PHONY: venv install test data_gen build clean help
+.PHONY: venv install test data_gen preprocess build clean help
 
 #################################################################################
 # Self Documenting Commands                                                     #

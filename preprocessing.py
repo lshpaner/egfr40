@@ -114,6 +114,9 @@ def apply_inclusion(df: pd.DataFrame) -> tuple[pd.DataFrame, list[tuple[str, int
     df = df[df["pregnant"] == 0]
     flow.append(("Not pregnant", len(df)))
 
+    df = df[df["eGFR"].notna()]
+    flow.append(("Serum creatinine available", len(df)))
+
     df = df[df["eGFR"] >= 15]
     flow.append(("eGFR >= 15 (excludes kidney failure)", len(df)))
 

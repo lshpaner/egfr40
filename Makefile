@@ -43,22 +43,12 @@ build:
 	$(PYTHON_INTERPRETER) -m pip install --upgrade build
 	$(PYTHON_INTERPRETER) -m build
 
-## Upload dist/ to TestPyPI (run `make build` first)
-publish_test:
-	$(PYTHON_INTERPRETER) -m twine check dist/*
-	$(PYTHON_INTERPRETER) -m twine upload --repository testpypi dist/*
-
-## Upload dist/ to PyPI (run `make build` first)
-publish:
-	$(PYTHON_INTERPRETER) -m twine check dist/*
-	$(PYTHON_INTERPRETER) -m twine upload dist/*
-
 ## Remove build artifacts and caches
 clean:
 	rm -rf build dist *.egg-info .pytest_cache
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 
-.PHONY: venv install test data_gen preprocess build publish_test publish clean help
+.PHONY: venv install test data_gen preprocess build clean help
 
 #################################################################################
 # Self Documenting Commands                                                     #

@@ -9,7 +9,7 @@ import egfr40  # noqa: E402
 
 project = "egfr40"
 author = "Leonid Shpaner"
-copyright = "2026, Leonid Shpaner"
+copyright = "2026, Leon Shpaner"
 release = egfr40.__version__
 version = release
 

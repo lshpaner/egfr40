@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it and the original paper below."
+title: "egfr40: CKD-PC risk equation for a 40% eGFR decline or kidney failure"
+type: software
+authors:
+  - family-names: Shpaner
+    given-names: Leonid
+    orcid: "https://orcid.org/0009-0007-5311-8095"
+version: 0.0.1a1
+date-released: 2026-11-18
+license: MIT
+repository-code: "https://github.com/lshpaner/egfr40"
+keywords:
+  - nephrology
+  - chronic kidney disease
+  - eGFR
+  - risk prediction
+references:
+  - type: article
+    authors:
+      - family-names: Grams
+        given-names: Morgan E.
+      - family-names: Brunskill
+        given-names: Nigel J.
+      - family-names: Ballew
+        given-names: Shoshana H.
+      - name: "CKD Prognosis Consortium"
+    title: "Development and Validation of Prediction Models of Adverse Kidney Outcomes in the Population With and Without Diabetes"
+    journal: "Diabetes Care"
+    year: 2022
+    volume: 45
+    issue: 9
+    start: 2055
+    end: 2063
+    doi: "10.2337/dc22-0698"

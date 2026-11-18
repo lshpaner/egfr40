@@ -1,7 +1,7 @@
 Changelog
 =========
 
-Version 0.0.1a2 (unreleased)
+Version 0.0.1a2 (2026-11-18)
 ----------------------------
 
 - ``egfr40_risk(..., explain=True)`` returns the stratum, linear predictor and

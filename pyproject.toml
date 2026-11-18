@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=77.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,14 +7,14 @@ name = "egfr40"
 version = "0.0.1"
 description = "CKD-PC risk equation for a >=40% eGFR decline or kidney failure over 2-3 years (Grams et al., Diabetes Care 2022)"
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "Leonid Shpaner", email = "lshpaner@ucla.edu" }]
 requires-python = ">=3.9"
 dependencies = ["numpy>=1.20", "pandas>=1.3"]
 keywords = ["nephrology", "ckd", "egfr", "risk prediction", "ckd-pc", "kidney"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Medical Science Apps.",

@@ -5,6 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/egfr40.svg)](https://pypi.org/project/egfr40/)
 [![Downloads](https://static.pepy.tech/badge/egfr40)](https://pepy.tech/project/egfr40)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/lshpaner/egfr40/tree/main?tab=MIT-1-ov-file)
+[![Zenodo](https://zenodo.org/badge/DOI/10.5281/zenodo.24350438.svg)](https://doi.org/10.5281/zenodo.24350438)
 
 `egfr40` is a Python library designed to estimate the 3-year risk of a ≥40% decline in estimated glomerular filtration rate (eGFR) or kidney failure, using the risk equation developed by Grams et al. for the CKD Prognosis Consortium (CKD-PC). Unlike risk equations restricted to patients with established chronic kidney disease (CKD), this model applies to the general population, with or without CKD. It is stratified by diabetes status and eGFR (≥60 or <60 mL/min/1.73 m²), and reproduces the [ckdpcrisk.org/gfrdecline40](https://ckdpcrisk.org/gfrdecline40/) calculator. The library is tailored for healthcare professionals and researchers, supporting risk predictions for individual patients or entire cohorts.
 
@@ -132,14 +133,16 @@ https://www.leonshpaner.com
 If you use `egfr40` in your research or projects, please consider citing it, along with the original paper by Grams et al. (2022).
 
 ```bibtex
-    @software{shpaner_2026_egfr40,
+    @software{shpaner_2026_24350438,
       author       = {Shpaner, Leonid},
       title        = {{egfr40: A Python Library for the CKD Prognosis
                        Consortium 40\% eGFR Decline Risk Equation}},
       month        = nov,
       year         = 2026,
+      publisher    = {Zenodo},
       version      = {0.0.1a2},
-      url          = {https://github.com/lshpaner/egfr40}
+      doi          = {10.5281/zenodo.24350438},
+      url          = {https://doi.org/10.5281/zenodo.24350438}
     }
 ```
 

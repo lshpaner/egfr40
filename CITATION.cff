@@ -7,6 +7,11 @@ authors:
     given-names: Leonid
     orcid: "https://orcid.org/0009-0007-5311-8095"
 version: 0.0.1a2
+doi: "10.5281/zenodo.24350438"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24350438"
+    description: "Concept DOI: all versions, resolves to the latest"
 date-released: 2026-11-18
 license: MIT
 repository-code: "https://github.com/lshpaner/egfr40"

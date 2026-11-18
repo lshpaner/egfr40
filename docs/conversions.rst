@@ -33,6 +33,16 @@ uPCR to uACR
 with uPCR and uACR in mg/g and natural logarithms. Non-positive or missing uPCR
 returns ``NaN``.
 
+.. note::
+
+   **Why this differs from kfre.** Sumida et al. (2020) publish two versions of
+   this equation: a crude one (uPCR only) and an adjusted one that adds sex,
+   diabetes and hypertension. ``egfr40`` uses the crude equation because Grams
+   et al. (2022) converted uPCR with the unadjusted equation when developing
+   the model. The `kfre <https://lshpaner.github.io/kfre>`_ library uses the
+   adjusted equation, so the same uPCR can give uACR values that differ by
+   roughly 10 to 20% between the two libraries.
+
 Dipstick to uACR
 ----------------
 

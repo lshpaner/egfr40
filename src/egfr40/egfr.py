@@ -34,3 +34,5 @@ def ckd_epi_2021(scr, age, male):
     )
     egfr = np.where(np.isnan(male), np.nan, egfr)
     return egfr.item() if egfr.ndim == 0 else egfr
+
+__all__ = ["ckd_epi_2021"]

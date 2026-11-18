@@ -305,3 +305,5 @@ def add_egfr40_risk_col(
 
     out[risk_col] = risk
     return out
+
+__all__ = ["egfr40_risk", "add_egfr40_risk_col"]

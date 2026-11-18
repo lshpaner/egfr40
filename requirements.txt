@@ -9,6 +9,7 @@ pandas==3.1.1
 
 # NHANES example (data_gen.py, preprocessing.py)
 pyarrow==26.0.1
+openpyxl==3.1.5
 requests==2.34.2
 typer==0.29.2
 

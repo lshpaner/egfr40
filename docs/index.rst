@@ -1,7 +1,3 @@
-.. image:: _static/egfr40_logo.svg
-   :alt: egfr40 Python library
-   :width: 360px
-
 Welcome to the egfr40 Python Library Documentation!
 ===================================================
 

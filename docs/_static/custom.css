@@ -3,3 +3,13 @@ div.math, .math {
     overflow-x: auto;
     overflow-y: hidden;
 }
+
+/* Page logo: not selectable, not draggable */
+img.egfr40-logo {
+    display: block;
+    margin-bottom: 1em;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}

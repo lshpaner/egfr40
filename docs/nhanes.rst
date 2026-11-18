@@ -13,8 +13,15 @@ cycle. It lives in the repository, not the installed package.
    make data_gen     # fetch the raw NHANES files into data/raw/
    make preprocess   # merge, compute eGFR, recode -> data/processed/
 
-``notebooks/01_score_nhanes.ipynb`` then scores the cohort and produces
-survey-weighted risk summaries by stratum.
+``notebooks/01_score_nhanes.ipynb`` then:
+
+1. scores every participant (one ``egfr40_3year`` value per ``SEQN``)
+2. shows per-participant scores, including the highest-risk participants
+3. produces survey-weighted risk summaries by stratum
+4. picks real participants whose inputs sit closest to the online calculator's
+   dropdown values and lists exactly what to enter on
+   `ckdpcrisk.org/gfrdecline40 <https://ckdpcrisk.org/gfrdecline40/>`_, so the
+   package can be checked against the calculator on real data
 
 How NHANES variables are coded
 ------------------------------

@@ -1,13 +1,14 @@
 name: Docs
 
-# Builds the Sphinx docs on every push to main or docs (warnings fail the build).
-# Only pushes to main deploy the site to the gh-pages branch.
+# Builds the Sphinx docs on every push to the docs branch (warnings fail the
+# build) and deploys the site to the gh-pages branch. main carries no docs.
 on:
   push:
-    branches: [main, docs]
+    branches: [docs]
     paths:
       - "docs/**"
       - "src/**"
+      - "notebooks/00_quickstart.ipynb"
       - ".github/workflows/docs.yml"
   workflow_dispatch:
 
@@ -33,7 +34,7 @@ jobs:
         run: make -C docs html
 
       - name: Deploy to gh-pages
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/docs'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

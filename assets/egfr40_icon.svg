@@ -1,30 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="egfr40">
 <title>egfr40</title>
+<defs>
+<clipPath id="ki"><path d="M62 44C82 44 94 58 92 74C91 84 84 88 84 96C84 104 91 108 92 118C94 136 80 148 62 148C42 148 30 126 30 96C30 66 42 44 62 44Z"/><path d="M62 44C82 44 94 58 92 74C91 84 84 88 84 96C84 104 91 108 92 118C94 136 80 148 62 148C42 148 30 126 30 96C30 66 42 44 62 44Z" transform="matrix(-1 0 0 1 200 0)"/></clipPath>
+</defs>
 <circle cx="100" cy="100" r="91" fill="none" stroke="#0E6E74" stroke-width="10"/>
-<g>
-<defs><clipPath id="kiL"><path d="M62 44C82 44 94 58 92 74C91 84 84 88 84 96C84 104 91 108 92 118C94 136 80 148 62 148C42 148 30 126 30 96C30 66 42 44 62 44Z"/></clipPath></defs>
-<path d="M62 44C82 44 94 58 92 74C91 84 84 88 84 96C84 104 91 108 92 118C94 136 80 148 62 148C42 148 30 126 30 96C30 66 42 44 62 44Z" fill="#9FCFD2"/>
-<rect x="20" y="86" width="80" height="70" fill="#0E6E74" clip-path="url(#kiL)"/>
+<path d="M86 102C96 110 100 124 100 142V186" fill="none" stroke="#0E6E74" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><g transform="matrix(-1 0 0 1 200 0)"><path d="M86 102C96 110 100 124 100 142V186" fill="none" stroke="#0E6E74" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g clip-path="url(#ki)">
+<path d="M0 0H200V123.6L0 46.4Z" fill="#9FCFD2"/>
+<path d="M0 200H200V123.6L0 46.4Z" fill="#0E6E74"/>
+<path d="M0 46.4L200 123.6" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+</g>
 <g fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
 <path d="M80 96C74 84 68 74 62 62M62 62C58 58 55 58 52 60M62 62C62 57 64 54 67 52" />
 <path d="M80 96C70 92 58 88 46 84M46 84C42 80 41 77 42 74M46 84C42 86 40 89 40 92" />
 <path d="M80 96C70 100 58 104 46 110M46 110C42 108 40 105 40 102M46 110C43 113 43 116 44 119" />
 <path d="M80 96C74 108 68 118 62 130M62 130C58 132 55 132 52 130M62 130C62 135 64 138 67 140" />
-</g>
-<ellipse cx="81" cy="96" rx="6" ry="9" fill="#FFFFFF"/>
-<path d="M86 102C96 110 100 124 100 142V186" fill="none" stroke="#0E6E74" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<g transform="matrix(-1 0 0 1 200 0)">
-<defs><clipPath id="kiR"><path d="M62 44C82 44 94 58 92 74C91 84 84 88 84 96C84 104 91 108 92 118C94 136 80 148 62 148C42 148 30 126 30 96C30 66 42 44 62 44Z"/></clipPath></defs>
-<path d="M62 44C82 44 94 58 92 74C91 84 84 88 84 96C84 104 91 108 92 118C94 136 80 148 62 148C42 148 30 126 30 96C30 66 42 44 62 44Z" fill="#9FCFD2"/>
-<rect x="20" y="86" width="80" height="70" fill="#0E6E74" clip-path="url(#kiR)"/>
-<g fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+</g><ellipse cx="81" cy="96" rx="6" ry="9" fill="#FFFFFF"/><g transform="matrix(-1 0 0 1 200 0)"><g fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
 <path d="M80 96C74 84 68 74 62 62M62 62C58 58 55 58 52 60M62 62C62 57 64 54 67 52" />
 <path d="M80 96C70 92 58 88 46 84M46 84C42 80 41 77 42 74M46 84C42 86 40 89 40 92" />
 <path d="M80 96C70 100 58 104 46 110M46 110C42 108 40 105 40 102M46 110C43 113 43 116 44 119" />
 <path d="M80 96C74 108 68 118 62 130M62 130C58 132 55 132 52 130M62 130C62 135 64 138 67 140" />
-</g>
-<ellipse cx="81" cy="96" rx="6" ry="9" fill="#FFFFFF"/>
-<path d="M86 102C96 110 100 124 100 142V186" fill="none" stroke="#0E6E74" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
+</g><ellipse cx="81" cy="96" rx="6" ry="9" fill="#FFFFFF"/></g>
 </svg>

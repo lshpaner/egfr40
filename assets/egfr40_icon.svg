@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="egfr40">
+<title>egfr40</title>
+<circle cx="100" cy="100" r="91" fill="none" stroke="#0E6E74" stroke-width="10"/>
+<g transform="translate(100 100) scale(0.84) translate(-124 -102)">
+<path d="M112 24C158 24 182 62 182 104C182 148 152 180 112 180C80 180 62 162 66 140C69 124 86 118 86 102C86 86 69 80 66 64C62 42 80 24 112 24Z" fill="#0E6E74"/>
+<path d="M132 76H166" fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="7" stroke-dasharray="7 7" stroke-linecap="round"/>
+<path d="M104 76H130L152 128H168" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

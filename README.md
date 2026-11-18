@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/lshpaner/egfr40/main/assets/egfr40_logo.svg" alt="egfr40 Python library" width="480">
+</p>
+
 # egfr40
 
 Python implementation of the CKD Prognosis Consortium (CKD-PC) risk equation for the

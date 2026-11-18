@@ -30,6 +30,10 @@ install:
 test:
 	$(PYTHON_INTERPRETER) -m pytest -v
 
+## Run the test suite with a coverage report
+coverage:
+	$(PYTHON_INTERPRETER) -m pytest tests/ --cov=egfr40 --cov-report=term-missing
+
 ## Fetch raw NHANES 2017-March 2020 files into data/raw
 data_gen:
 	$(PYTHON_INTERPRETER) data_gen.py --csv
@@ -48,7 +52,7 @@ clean:
 	rm -rf build dist *.egg-info src/*.egg-info .pytest_cache
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 
-.PHONY: venv install test data_gen preprocess build clean help
+.PHONY: venv install test coverage data_gen preprocess build clean help
 
 #################################################################################
 # Self Documenting Commands                                                     #

@@ -45,7 +45,7 @@ build:
 
 ## Remove build artifacts and caches
 clean:
-	rm -rf build dist *.egg-info .pytest_cache
+	rm -rf build dist *.egg-info src/*.egg-info .pytest_cache
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 
 .PHONY: venv install test data_gen preprocess build clean help

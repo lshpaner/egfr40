@@ -64,6 +64,7 @@ Table of Contents
    :caption: About egfr40
 
    model
+   contributors
    acknowledgements
    citing
    changelog

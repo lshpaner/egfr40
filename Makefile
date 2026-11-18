@@ -32,7 +32,7 @@ test:
 
 ## Run the test suite with a coverage report
 coverage:
-	$(PYTHON_INTERPRETER) -m pytest tests/ --cov=egfr40 --cov-report=term-missing
+	$(PYTHON_INTERPRETER) -m pytest tests/ --cov=src/egfr40 --cov-report=term-missing
 
 ## Fetch raw NHANES 2017-March 2020 files into data/raw
 data_gen:

@@ -77,9 +77,8 @@ available.
 meet at 60. Small changes in eGFR around 60 can move risk noticeably. At
 exactly 60 the two models are averaged, as on the CKD-PC website.
 
-**Inputs the online calculator asks for but the model does not use.** The
-calculator asks for race and hypertension status. Neither appears in the
-published equation, so neither is an input here.
+**Inputs the model does not use.** Race and hypertension status do not appear
+in the published equation, so neither is an input here.
 
 **Missing values in cohorts.** ``add_egfr40_risk_col`` returns ``NaN`` for rows
 with a missing required input. Count them before summarizing risk, since

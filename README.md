@@ -35,7 +35,7 @@ pip install egfr40
 - Risk explanations: each predictor's contribution to an individual patient's risk
 - CKD-EPI 2021 (race-free) eGFR from serum creatinine
 - uPCR-to-uACR and urine dipstick-to-uACR estimation, plus uACR unit conversion (see caveat below)
-- Verified against the online CKD-PC calculator in all four strata
+- Coefficients checked against the paper's odds ratios in all four strata, and risks verified against the online CKD-PC calculator
 
 **Note on uACR estimation:** the uPCR- and dipstick-to-uACR conversions are approximations that carry measurement error; a directly measured uACR is preferred when available.
 
@@ -106,7 +106,7 @@ acr_mg_mmol_to_mg_g(3.0)                # 26.5 mg/g
 
 - Coefficients, intercepts, and the centering and scaling of each predictor are taken from Supplemental Table S5 of Grams et al. (2022). All coefficients match the odds ratios reported in the paper's Tables 2 and 3.
 - The stratified models do not meet at eGFR 60. Following the CKD-PC website, risk at exactly eGFR 60 is the average of the two strata.
-- The online calculator also asks for race and hypertension status; neither appears in the published model, so neither is an input here.
+- Race and hypertension status do not appear in the published model, so neither is an input here.
 - The hypertension-based alternative models (Supplemental Tables S6 and S7) are published without intercepts and cannot be implemented.
 
 ## NHANES Example
@@ -158,8 +158,7 @@ The risk equation developed by Grams et al. for the CKD Prognosis Consortium has
 
 The `egfr40` library is based on the risk prediction models developed in the studies referenced below. Please refer to these studies for an in-depth understanding of the models used within this library.
 
-References
-===========
+## References
 
 1. Grams, M. E., Brunskill, N. J., Ballew, S. H., Sang, Y., Coresh, J., Matsushita, K., Surapaneni, A., Bell, S., Carrero, J. J., Chodick, G., Evans, M., Heerspink, H. J. L., Inker, L. A., Iseki, K., Kalra, P. A., Kirchner, H. L., Lee, B. J., Levin, A., Major, R. W., Medcalf, J., Nadkarni, G. N., Naimark, D. M. J., Ricardo, A. C., Sawhney, S., Sood, M. M., Staplin, N., Stempniewicz, N., Stengel, B., Sumida, K., Traynor, J. P., van den Brand, J., Wen, C.-P., Woodward, M., Yang, J. W., Wang, A. Y.-M., Tangri, N., & for the CKD Prognosis Consortium. (2022). Development and validation of prediction models of adverse kidney outcomes in the population with and without diabetes. *Diabetes Care, 45*(9), 2055–2063. https://doi.org/10.2337/dc22-0698
 

@@ -57,8 +57,7 @@ What is not implemented
   without intercepts, so absolute risk cannot be computed.
 - **30% and 50% decline models** (Supplemental Tables S8 to S11) are also
   published without intercepts.
-- **Race and hypertension status**, asked for by the online calculator, do not
-  appear in the published equation.
+- **Race and hypertension status** do not appear in the published equation.
 - **Risk thresholds** such as "high risk" are not defined in the paper, so the
   package reports probabilities only.
 

@@ -29,6 +29,7 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
+html_css_files = ["custom.css"]
 html_title = f"egfr40 {release}"
 html_theme_options = {"navigation_depth": 3, "collapse_navigation": False}
 

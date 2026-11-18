@@ -23,10 +23,12 @@ uPCR to uACR
 
 .. math::
 
-   \text{uACR} = \exp\Big(5.3920
-   + 0.3072 \log\left(\min\left(\tfrac{\text{PCR}}{50}, 1\right)\right)
-   + 1.5793 \log\left(\max\left(\min\left(\tfrac{\text{PCR}}{500}, 1\right), 0.1\right)\right)
-   + 1.1266 \log\left(\max\left(\tfrac{\text{PCR}}{500}, 1\right)\right)\Big)
+   \begin{aligned}
+   \text{uACR} = \exp\Big(\, & 5.3920
+     + 0.3072 \log\left(\min\left(\tfrac{\text{PCR}}{50},\, 1\right)\right) \\
+   & + 1.5793 \log\left(\max\left(\min\left(\tfrac{\text{PCR}}{500},\, 1\right),\, 0.1\right)\right) \\
+   & + 1.1266 \log\left(\max\left(\tfrac{\text{PCR}}{500},\, 1\right)\right) \Big)
+   \end{aligned}
 
 with uPCR and uACR in mg/g and natural logarithms. Non-positive or missing uPCR
 returns ``NaN``.

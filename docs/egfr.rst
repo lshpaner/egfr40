@@ -18,9 +18,11 @@ The equation
 
 .. math::
 
-   \text{eGFR} = 142 \times \min\left(\frac{S_{cr}}{\kappa}, 1\right)^{\alpha}
-   \times \max\left(\frac{S_{cr}}{\kappa}, 1\right)^{-1.200}
-   \times 0.9938^{\text{age}} \times 1.012\,[\text{if female}]
+   \begin{aligned}
+   \text{eGFR} = 142 \, & \times \min\left(\frac{S_{cr}}{\kappa},\, 1\right)^{\alpha}
+     \times \max\left(\frac{S_{cr}}{\kappa},\, 1\right)^{-1.200} \\
+   & \times 0.9938^{\text{age}} \times 1.012 \; [\text{if female}]
+   \end{aligned}
 
 where :math:`S_{cr}` is serum creatinine in mg/dL, :math:`\kappa` is 0.7 for
 females and 0.9 for males, and :math:`\alpha` is -0.241 for females and -0.302

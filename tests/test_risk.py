@@ -138,3 +138,15 @@ def test_explain_at_egfr_60():
     out = egfr40_risk(**{**SITE_CASE, "egfr": 60}, explain=True)
     assert len(out["strata"]) == 2
     assert out["risk"] == pytest.approx(egfr40_risk(**{**SITE_CASE, "egfr": 60}))
+
+
+@pytest.mark.parametrize("case,expected", [
+    # No diabetes, eGFR < 60 (regression value; not yet checked on the site)
+    (dict(age=65, male=1, egfr=45, uacr=100, sbp=150, bp_meds=1, hf=0, chd=1, afib=0,
+          smoking="former", bmi=30, dm=False), 0.128),
+    # No diabetes, eGFR >= 60 (regression value; not yet checked on the site)
+    (dict(age=50, male=0, egfr=90, uacr=30, sbp=130, bp_meds=0, hf=0, chd=0, afib=0,
+          smoking="current", bmi=25, dm=False), 0.014),
+])
+def test_no_dm_strata_regression(case, expected):
+    assert round(egfr40_risk(**case), 3) == expected

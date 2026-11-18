@@ -74,6 +74,24 @@ with its own stratum.
 The arguments shown are the defaults, so a DataFrame that already uses these
 column names needs only ``add_egfr40_risk_col(df)``.
 
+Example: five patients, one risk score each
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Each row gets its own ``egfr40_3year`` value, scored with that row's stratum.
+Patient E is missing systolic BP, so it gets ``NaN``.
+
+.. code-block:: text
+
+     patient           stratum  eGFR  uACR  egfr40_3year  risk_%
+   0       A  No DM, eGFR >=60    95     8      0.004776     0.5
+   1       B     DM, eGFR >=60    82    40      0.033876     3.4
+   2       C   No DM, eGFR <60    42   150      0.149257    14.9
+   3       D      DM, eGFR <60    40   150      0.166029    16.6
+   4       E  No DM, eGFR >=60    75    25           NaN     NaN
+
+The full example, including each patient's top risk drivers, is in the
+:doc:`_notebooks/00_quickstart` notebook.
+
 The function:
 
 - accepts text or numeric codes (``"male"``/``"female"`` or 1/0;

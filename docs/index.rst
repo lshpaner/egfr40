@@ -46,6 +46,7 @@ Table of Contents
    :caption: Getting Started
 
    getting_started
+   _notebooks/00_quickstart
 
 .. toctree::
    :maxdepth: 2

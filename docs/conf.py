@@ -1,5 +1,6 @@
 # Sphinx configuration for egfr40
 import os
+import shutil
 import sys
 
 sys.path.insert(0, os.path.abspath("../src"))
@@ -18,14 +19,29 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
+    "myst_nb",
 ]
+
+# Notebooks live in ../notebooks (committed without outputs). Copy the ones
+# that run without external data into the docs tree; myst-nb executes them
+# at build time so the published pages show outputs.
+_NB_SRC = os.path.abspath("../notebooks")
+_NB_DST = os.path.abspath("_notebooks")
+os.makedirs(_NB_DST, exist_ok=True)
+for _nb in ["00_quickstart.ipynb"]:
+    shutil.copy2(os.path.join(_NB_SRC, _nb), os.path.join(_NB_DST, _nb))
+
+nb_execution_mode = "force"
+nb_execution_timeout = 120
+nb_execution_raise_on_error = True
+nb_merge_streams = True
 
 napoleon_numpy_docstring = True
 napoleon_google_docstring = False
 autodoc_member_order = "bysource"
 
 templates_path = ["_templates"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "jupyter_execute"]
 
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]

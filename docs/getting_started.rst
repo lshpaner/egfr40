@@ -27,7 +27,8 @@ Score a cohort
 
    df = add_egfr40_risk_col(df)   # adds an "egfr40_3year" column
 
-See :doc:`usage_guide` for column mapping and :doc:`inputs` for the expected
+See :doc:`_notebooks/00_quickstart` for a worked example with output,
+:doc:`usage_guide` for column mapping, and :doc:`inputs` for the expected
 units and codes.
 
 Library overview
@@ -45,6 +46,7 @@ Table of Contents
 
 - :doc:`index`
 - :doc:`getting_started`
+- :doc:`_notebooks/00_quickstart`
 
 **Documentation**
 

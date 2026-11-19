@@ -16,7 +16,7 @@ Score one patient
    # 0.166  -> a 16.6% 3-year risk
 
 This patient has diabetes and an eGFR below 60, so the function uses the
-"diabetes, eGFR <60" model. The result matches the online CKD-PC calculator.
+"diabetes, eGFR <60" model. The result matches the online CKD-PC calculator (16.6%).
 
 Score a cohort
 --------------

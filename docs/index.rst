@@ -9,13 +9,19 @@ Welcome to the egfr40 Python Library Documentation!
 ≥40% decline in estimated glomerular filtration rate (eGFR) or kidney failure,
 using the risk equation developed by Grams et al. (2022) for the CKD Prognosis
 Consortium (CKD-PC). The model applies to the general population, with or
-without chronic kidney disease (CKD), and reproduces the
-`ckdpcrisk.org/gfrdecline40 <https://ckdpcrisk.org/gfrdecline40/>`_ calculator.
+without chronic kidney disease (CKD). Every coefficient matches the odds ratios
+published in the paper, and the risks match the
+`ckdpcrisk.org/gfrdecline40 <https://ckdpcrisk.org/gfrdecline40/>`_ calculator
+in the diabetes models.
 
 The library scores single patients or entire cohorts, explains each patient's
 risk term by term, and includes helpers for CKD-EPI 2021 eGFR and for
 converting urine protein-to-creatinine ratio (uPCR) or dipstick protein to
 urine albumin-to-creatinine ratio (uACR).
+
+For one patient at a time without writing code, there is also a
+`web calculator <https://flask.leonshpaner.com/egfr40_calc/>`_ built on the
+library.
 
 .. important::
 

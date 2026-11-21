@@ -143,17 +143,17 @@ def egfr40_risk(
         With ``explain=True``, a dict with ``risk``, ``stratum``,
         ``intercept``, ``linear_predictor`` (log-odds) and ``contributions``
         (each predictor's log-odds contribution, largest first). Positive
-        contributions raise risk relative to the reference patient: age 60,
+        contributions raise risk relative to the reference individual: age 60,
         eGFR at the stratum center (85 or 45), uACR 10 mg/g, SBP 130, BMI 30,
         HbA1c 7%, never smoker, no BP or diabetes medication, and HF and CHD at
-        their centering values of 0.05 and 0.15 (so a patient without HF or CHD
+        their centering values of 0.05 and 0.15 (so an individual without HF or CHD
         gets a small negative contribution for each). At eGFR == 60, a dict with
         the averaged ``risk`` and both breakdowns under ``strata``.
 
     Raises
     ------
     ValueError
-        If ``hba1c`` is missing for a patient with diabetes, ``uacr`` is not
+        If ``hba1c`` is missing for an individual with diabetes, ``uacr`` is not
         positive, or ``smoking`` is not a recognized value.
 
     Examples
@@ -273,7 +273,7 @@ def add_egfr40_risk_col(
     Parameters
     ----------
     df : pandas.DataFrame
-        One row per patient.
+        One row per individual.
     age_col, sex_col, egfr_col, uacr_col, sbp_col, bp_meds_col : str
         Column names for age (years), sex, eGFR (CKD-EPI 2021), uACR (mg/g),
         systolic BP (mmHg) and antihypertensive medication use.

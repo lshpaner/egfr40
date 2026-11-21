@@ -1,6 +1,14 @@
 Changelog
 =========
 
+Version 0.0.1a3 (2026-11-21)
+----------------------------
+
+- README (the PyPI page) states that the library is for research use and says
+  which models are verified against the online calculator (the diabetes
+  models); every coefficient matches the paper's published odds ratios.
+- Regression tests for the two models without diabetes.
+
 Version 0.0.1a2 (2026-11-18)
 ----------------------------
 

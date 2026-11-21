@@ -41,7 +41,7 @@ returns ``NaN``.
    et al. (2022) converted uPCR with the unadjusted equation when developing
    the model. The `kfre <https://lshpaner.github.io/kfre>`_ library uses the
    adjusted equation, so the same uPCR can give uACR values that differ by
-   up to about 20% between the two libraries, depending on the patient.
+   up to about 20% between the two libraries, depending on the individual.
 
 Dipstick to uACR
 ----------------

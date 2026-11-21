@@ -1,10 +1,10 @@
 Usage Guide
 ===========
 
-Single patient: ``egfr40_risk``
--------------------------------
+Single individual: ``egfr40_risk``
+----------------------------------
 
-``egfr40_risk`` returns the 3-year probability (0 to 1) for one patient.
+``egfr40_risk`` returns the 3-year probability (0 to 1) for one individual.
 
 .. code-block:: python
 
@@ -17,11 +17,11 @@ Single patient: ``egfr40_risk``
    )
 
 ``dm`` is required and has no default. It selects the diabetes or
-no-diabetes model, and leaving it implicit made it too easy to score a
-diabetic patient with the wrong model. When ``dm=True``, ``hba1c`` is required.
+no-diabetes model, and leaving it implicit made it too easy to score an
+individual with diabetes using the wrong model. When ``dm=True``, ``hba1c`` is required.
 
-Explaining a patient's risk
----------------------------
+Explaining an individual's risk
+-------------------------------
 
 Pass ``explain=True`` to get a breakdown instead of a single number:
 
@@ -40,11 +40,11 @@ Pass ``explain=True`` to get a breakdown instead of a single number:
 
 Each value in ``contributions`` is that predictor's effect on the log-odds,
 listed largest first. Positive values raise risk and negative values lower it,
-relative to the model's reference patient: age 60, uACR 10 mg/g, systolic BP
+relative to the model's reference individual: age 60, uACR 10 mg/g, systolic BP
 130 mmHg, BMI 30 kg/m², and eGFR at the center of its stratum (85 or 45).
 
 Heart failure and coronary heart disease are centered at 0.05 and 0.15 in the
-published model, so a patient without either still gets a small negative
+published model, so an individual without either still gets a small negative
 contribution for each.
 
 At exactly eGFR 60 the risk is an average of two models (see :doc:`model`), so
@@ -74,22 +74,22 @@ with its own stratum.
 The arguments shown are the defaults, so a DataFrame that already uses these
 column names needs only ``add_egfr40_risk_col(df)``.
 
-Example: five patients, one risk score each
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Example: five individuals, one risk score each
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Each row gets its own ``egfr40_3year`` value, scored with that row's stratum.
-Patient E is missing systolic BP, so it gets ``NaN``.
+Individual E is missing systolic BP, so it gets ``NaN``.
 
 .. code-block:: text
 
-     patient           stratum  eGFR  uACR  egfr40_3year  risk_%
+  individual           stratum  eGFR  uACR  egfr40_3year  risk_%
    0       A  No DM, eGFR >=60    95     8      0.004776     0.5
    1       B     DM, eGFR >=60    82    40      0.033876     3.4
    2       C   No DM, eGFR <60    42   150      0.149257    14.9
    3       D      DM, eGFR <60    40   150      0.166029    16.6
    4       E  No DM, eGFR >=60    75    25           NaN     NaN
 
-The full example, including each patient's top risk drivers, is in the
+The full example, including each individual's top risk drivers, is in the
 :doc:`_notebooks/00_quickstart` notebook.
 
 The function:

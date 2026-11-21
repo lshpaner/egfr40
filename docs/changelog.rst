@@ -8,6 +8,7 @@ Version 0.0.1a3 (2026-11-21)
   which models are verified against the online calculator (the diabetes
   models); every coefficient matches the paper's published odds ratios.
 - Regression tests for the two models without diabetes.
+- README, docstrings and docs say "individual" rather than "patient".
 
 Version 0.0.1a2 (2026-11-18)
 ----------------------------

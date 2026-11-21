@@ -14,12 +14,12 @@ published in the paper, and the risks match the
 `ckdpcrisk.org/gfrdecline40 <https://ckdpcrisk.org/gfrdecline40/>`_ calculator
 in the diabetes models.
 
-The library scores single patients or entire cohorts, explains each patient's
+The library scores single individuals or entire cohorts, explains each individual's
 risk term by term, and includes helpers for CKD-EPI 2021 eGFR and for
 converting urine protein-to-creatinine ratio (uPCR) or dipstick protein to
 urine albumin-to-creatinine ratio (uACR).
 
-For one patient at a time without writing code, there is also a
+For one individual at a time without writing code, there is also a
 `web calculator <https://flask.leonshpaner.com/egfr40_calc/>`_ built on the
 library.
 

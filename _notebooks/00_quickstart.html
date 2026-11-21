@@ -1,0 +1,666 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>egfr40 quickstart &mdash; egfr40 0.0.1a3</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f9bb85ce" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=56909cd4"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=fd10adb8"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Usage Guide" href="../usage_guide.html" />
+    <link rel="prev" title="Getting Started" href="../getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            egfr40
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#score-one-individual">Score one individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#score-a-cohort">Score a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#library-overview">Library overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">egfr40 quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a-small-cohort">1. A small cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-a-risk-column-for-every-individual">2. Add a risk column for every individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-drives-one-individual-s-risk">3. What drives one individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#top-drivers-for-every-individual">4. Top drivers for every individual</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../usage_guide.html#single-individual-egfr40-risk">Single individual: <code class="docutils literal notranslate"><span class="pre">egfr40_risk</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage_guide.html#explaining-an-individual-s-risk">Explaining an individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage_guide.html#cohorts-add-egfr40-risk-col">Cohorts: <code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../usage_guide.html#example-five-individuals-one-risk-score-each">Example: five individuals, one risk score each</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../inputs.html">Input Requirements and Common Pitfalls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../inputs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inputs.html#common-pitfalls">Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../egfr.html">eGFR (CKD-EPI 2021)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../egfr.html#the-equation">The equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../conversions.html">uPCR and Dipstick to uACR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conversions.html#upcr-to-uacr">uPCR to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conversions.html#dipstick-to-uacr">Dipstick to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conversions.html#unit-conversion">Unit conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nhanes.html">NHANES Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nhanes.html#how-nhanes-variables-are-coded">How NHANES variables are coded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nhanes.html#prior-work">Prior work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#risk">Risk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.egfr40_risk"><code class="docutils literal notranslate"><span class="pre">egfr40_risk()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.add_egfr40_risk_col"><code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#egfr">eGFR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.ckd_epi_2021"><code class="docutils literal notranslate"><span class="pre">ckd_epi_2021()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#conversions">Conversions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.pcr_to_acr"><code class="docutils literal notranslate"><span class="pre">pcr_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.dipstick_to_acr"><code class="docutils literal notranslate"><span class="pre">dipstick_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.acr_mg_mmol_to_mg_g"><code class="docutils literal notranslate"><span class="pre">acr_mg_mmol_to_mg_g()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.acr_mg_g_to_mg_mmol"><code class="docutils literal notranslate"><span class="pre">acr_mg_g_to_mg_mmol()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About egfr40</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">The Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#outcome">Outcome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#the-equation">The equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#the-egfr-60-boundary">The eGFR 60 boundary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#what-is-not-implemented">What is not implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#discrimination">Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors/Maintainers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing egfr40</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-1a3-2026-11-21">Version 0.0.1a3 (2026-11-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-1a2-2026-11-18">Version 0.0.1a2 (2026-11-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-1a1-2026-11-18">Version 0.0.1a1 (2026-11-18)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">egfr40</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">egfr40 quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_notebooks/00_quickstart.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<img src="../_static/egfr40_logo.svg" alt="egfr40 Python library"
+     width="200" class="egfr40-logo" draggable="false" oncontextmenu="return false;">
+
+           <div itemprop="articleBody">
+             
+  <section id="egfr40-quickstart">
+<h1>egfr40 quickstart<a class="headerlink" href="#egfr40-quickstart" title="Link to this heading"></a></h1>
+<p>Score the 3-year risk of a ≥40% eGFR decline or kidney failure for a small, made-up
+cohort, then see what drives each individual’s risk.</p>
+<section id="a-small-cohort">
+<h2>1. A small cohort<a class="headerlink" href="#a-small-cohort" title="Link to this heading"></a></h2>
+<p>Five made-up individuals: one in each of the model’s four strata (diabetes or not,
+eGFR ≥60 or &lt;60), plus one with a missing blood pressure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">egfr40</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_egfr40_risk_col</span><span class="p">,</span> <span class="n">egfr40_risk</span>
+
+<span class="c1"># One row per individual; column names match add_egfr40_risk_col's defaults</span>
+<span class="n">cohort</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"individual"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">,</span> <span class="s2">"E"</span><span class="p">],</span>
+    <span class="s2">"age"</span><span class="p">:</span>      <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">64</span><span class="p">],</span>
+    <span class="s2">"sex"</span><span class="p">:</span>      <span class="p">[</span><span class="s2">"female"</span><span class="p">,</span> <span class="s2">"male"</span><span class="p">,</span> <span class="s2">"male"</span><span class="p">,</span> <span class="s2">"male"</span><span class="p">,</span> <span class="s2">"female"</span><span class="p">],</span>
+    <span class="s2">"eGFR"</span><span class="p">:</span>     <span class="p">[</span><span class="mi">95</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span>
+    <span class="s2">"uACR"</span><span class="p">:</span>     <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>          <span class="c1"># mg/g</span>
+    <span class="s2">"sbp"</span><span class="p">:</span>      <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">138</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>     <span class="c1"># individual E has no BP reading</span>
+    <span class="s2">"bp_meds"</span><span class="p">:</span>  <span class="p">[</span><span class="s2">"no"</span><span class="p">,</span> <span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">],</span>
+    <span class="s2">"hf"</span><span class="p">:</span>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s2">"chd"</span><span class="p">:</span>      <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s2">"afib"</span><span class="p">:</span>     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s2">"smoking"</span><span class="p">:</span>  <span class="p">[</span><span class="s2">"never"</span><span class="p">,</span> <span class="s2">"current"</span><span class="p">,</span> <span class="s2">"former"</span><span class="p">,</span> <span class="s2">"former"</span><span class="p">,</span> <span class="s2">"never"</span><span class="p">],</span>
+    <span class="s2">"bmi"</span><span class="p">:</span>      <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">27</span><span class="p">],</span>
+    <span class="s2">"dm"</span><span class="p">:</span>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s2">"hba1c"</span><span class="p">:</span>    <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>   <span class="c1"># % ; only needed when dm = 1</span>
+    <span class="s2">"oral_dm"</span><span class="p">:</span>  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s2">"insulin"</span><span class="p">:</span>  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="n">cohort</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>individual</th>
+      <th>age</th>
+      <th>sex</th>
+      <th>eGFR</th>
+      <th>uACR</th>
+      <th>sbp</th>
+      <th>bp_meds</th>
+      <th>hf</th>
+      <th>chd</th>
+      <th>afib</th>
+      <th>smoking</th>
+      <th>bmi</th>
+      <th>dm</th>
+      <th>hba1c</th>
+      <th>oral_dm</th>
+      <th>insulin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>50</td>
+      <td>female</td>
+      <td>95</td>
+      <td>8</td>
+      <td>120.0</td>
+      <td>no</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>never</td>
+      <td>25</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>58</td>
+      <td>male</td>
+      <td>82</td>
+      <td>40</td>
+      <td>138.0</td>
+      <td>yes</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>current</td>
+      <td>31</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>72</td>
+      <td>male</td>
+      <td>42</td>
+      <td>150</td>
+      <td>140.0</td>
+      <td>yes</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>former</td>
+      <td>28</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>70</td>
+      <td>male</td>
+      <td>40</td>
+      <td>150</td>
+      <td>140.0</td>
+      <td>yes</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>former</td>
+      <td>28</td>
+      <td>1</td>
+      <td>7.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E</td>
+      <td>64</td>
+      <td>female</td>
+      <td>75</td>
+      <td>25</td>
+      <td>NaN</td>
+      <td>no</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>never</td>
+      <td>27</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="add-a-risk-column-for-every-individual">
+<h2>2. Add a risk column for every individual<a class="headerlink" href="#add-a-risk-column-for-every-individual" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code> scores each row with its own stratum and adds <code class="docutils literal notranslate"><span class="pre">egfr40_3year</span></code>.
+Individual E gets <code class="docutils literal notranslate"><span class="pre">NaN</span></code> because a required input (systolic BP) is missing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scored</span> <span class="o">=</span> <span class="n">add_egfr40_risk_col</span><span class="p">(</span><span class="n">cohort</span><span class="p">)</span>
+
+<span class="c1"># Label each individual's stratum to see which model was used</span>
+<span class="n">scored</span><span class="p">[</span><span class="s2">"stratum"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">scored</span><span class="p">[</span><span class="s2">"dm"</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="s2">"No DM"</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">"DM"</span><span class="p">})</span>
+    <span class="o">+</span> <span class="s2">", eGFR "</span>
+    <span class="o">+</span> <span class="n">scored</span><span class="p">[</span><span class="s2">"eGFR"</span><span class="p">]</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="kc">True</span><span class="p">:</span> <span class="s2">"&gt;=60"</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="s2">"&lt;60"</span><span class="p">})</span>
+<span class="p">)</span>
+<span class="n">scored</span><span class="p">[</span><span class="s2">"risk_%"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">scored</span><span class="p">[</span><span class="s2">"egfr40_3year"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">scored</span><span class="p">[[</span><span class="s2">"individual"</span><span class="p">,</span> <span class="s2">"stratum"</span><span class="p">,</span> <span class="s2">"eGFR"</span><span class="p">,</span> <span class="s2">"uACR"</span><span class="p">,</span> <span class="s2">"egfr40_3year"</span><span class="p">,</span> <span class="s2">"risk_%"</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>individual</th>
+      <th>stratum</th>
+      <th>eGFR</th>
+      <th>uACR</th>
+      <th>egfr40_3year</th>
+      <th>risk_%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>No DM, eGFR &gt;=60</td>
+      <td>95</td>
+      <td>8</td>
+      <td>0.004776</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>DM, eGFR &gt;=60</td>
+      <td>82</td>
+      <td>40</td>
+      <td>0.033876</td>
+      <td>3.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>No DM, eGFR &lt;60</td>
+      <td>42</td>
+      <td>150</td>
+      <td>0.149257</td>
+      <td>14.9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>DM, eGFR &lt;60</td>
+      <td>40</td>
+      <td>150</td>
+      <td>0.166029</td>
+      <td>16.6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E</td>
+      <td>No DM, eGFR &gt;=60</td>
+      <td>75</td>
+      <td>25</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="what-drives-one-individual-s-risk">
+<h2>3. What drives one individual’s risk<a class="headerlink" href="#what-drives-one-individual-s-risk" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">explain=True</span></code> breaks individual D’s risk into each predictor’s contribution to the
+log-odds. Positive values raise risk; the largest drivers come first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">egfr40_risk</span><span class="p">(</span>
+    <span class="n">age</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">male</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">egfr</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">uacr</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">sbp</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">bp_meds</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">hf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">chd</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">afib</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">smoking</span><span class="o">=</span><span class="s2">"former"</span><span class="p">,</span> <span class="n">bmi</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span>
+    <span class="n">dm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hba1c</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">explain</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="s2">"stratum"</span><span class="p">],</span> <span class="sa">f</span><span class="s2">"risk = </span><span class="si">{</span><span class="n">out</span><span class="p">[</span><span class="s1">'risk'</span><span class="p">]</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="s2">"contributions"</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">"log-odds contribution"</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DM, eGFR &lt;60 risk = 16.6%
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>log-odds contribution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>uacr</th>
+      <td>1.261</td>
+    </tr>
+    <tr>
+      <th>chd</th>
+      <td>0.185</td>
+    </tr>
+    <tr>
+      <th>age</th>
+      <td>-0.172</td>
+    </tr>
+    <tr>
+      <th>bp_meds</th>
+      <td>0.166</td>
+    </tr>
+    <tr>
+      <th>smoking</th>
+      <td>0.139</td>
+    </tr>
+    <tr>
+      <th>sbp</th>
+      <td>0.103</td>
+    </tr>
+    <tr>
+      <th>egfr</th>
+      <td>0.077</td>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <td>-0.073</td>
+    </tr>
+    <tr>
+      <th>afib</th>
+      <td>0.046</td>
+    </tr>
+    <tr>
+      <th>sbp_x_bp_meds</th>
+      <td>-0.027</td>
+    </tr>
+    <tr>
+      <th>hf</th>
+      <td>-0.021</td>
+    </tr>
+    <tr>
+      <th>bmi</th>
+      <td>-0.010</td>
+    </tr>
+    <tr>
+      <th>hba1c</th>
+      <td>-0.000</td>
+    </tr>
+    <tr>
+      <th>oral_dm</th>
+      <td>-0.000</td>
+    </tr>
+    <tr>
+      <th>insulin</th>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="top-drivers-for-every-individual">
+<h2>4. Top drivers for every individual<a class="headerlink" href="#top-drivers-for-every-individual" title="Link to this heading"></a></h2>
+<p>Apply <code class="docutils literal notranslate"><span class="pre">explain=True</span></code> row by row and keep each individual’s three largest drivers.
+Rows with missing inputs are skipped.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">top_drivers</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the n largest contributions for one complete row."""</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">egfr40_risk</span><span class="p">(</span>
+        <span class="n">age</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">male</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="s2">"male"</span><span class="p">),</span> <span class="n">egfr</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">eGFR</span><span class="p">,</span> <span class="n">uacr</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">uACR</span><span class="p">,</span>
+        <span class="n">sbp</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">sbp</span><span class="p">,</span> <span class="n">bp_meds</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">bp_meds</span> <span class="o">==</span> <span class="s2">"yes"</span><span class="p">),</span> <span class="n">hf</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">hf</span><span class="p">,</span> <span class="n">chd</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">chd</span><span class="p">,</span>
+        <span class="n">afib</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">afib</span><span class="p">,</span> <span class="n">smoking</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">smoking</span><span class="p">,</span> <span class="n">bmi</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">bmi</span><span class="p">,</span> <span class="n">dm</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">dm</span><span class="p">),</span>
+        <span class="n">hba1c</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">hba1c</span> <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">dm</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="n">oral_dm</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">oral_dm</span><span class="p">,</span>
+        <span class="n">insulin</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">insulin</span><span class="p">,</span> <span class="n">explain</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="s2">"contributions"</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">+.2f</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">top</span><span class="p">)</span>
+
+<span class="n">complete</span> <span class="o">=</span> <span class="n">scored</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"egfr40_3year"</span><span class="p">])</span>
+<span class="n">complete</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">top_drivers</span><span class="o">=</span><span class="n">complete</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">top_drivers</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))[</span>
+    <span class="p">[</span><span class="s2">"individual"</span><span class="p">,</span> <span class="s2">"stratum"</span><span class="p">,</span> <span class="s2">"risk_%"</span><span class="p">,</span> <span class="s2">"top_drivers"</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>individual</th>
+      <th>stratum</th>
+      <th>risk_%</th>
+      <th>top_drivers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>No DM, eGFR &gt;=60</td>
+      <td>0.5</td>
+      <td>age -0.37, sbp -0.15, uacr -0.09</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>DM, eGFR &gt;=60</td>
+      <td>3.4</td>
+      <td>uacr +0.57, bp_meds +0.28, sex -0.12</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>No DM, eGFR &lt;60</td>
+      <td>14.9</td>
+      <td>uacr +1.06, chd +0.20, smoking +0.17</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>DM, eGFR &lt;60</td>
+      <td>16.6</td>
+      <td>uacr +1.26, chd +0.18, age -0.17</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../usage_guide.html" class="btn btn-neutral float-right" title="Usage Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Leon Shpaner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

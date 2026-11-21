@@ -1,0 +1,198 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview: module code &mdash; egfr40 0.0.1a3</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f9bb85ce" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=56909cd4"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=fd10adb8"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            egfr40
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#score-one-individual">Score one individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#score-a-cohort">Score a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#library-overview">Library overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../_notebooks/00_quickstart.html">egfr40 quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_notebooks/00_quickstart.html#a-small-cohort">1. A small cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_notebooks/00_quickstart.html#add-a-risk-column-for-every-individual">2. Add a risk column for every individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_notebooks/00_quickstart.html#what-drives-one-individual-s-risk">3. What drives one individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_notebooks/00_quickstart.html#top-drivers-for-every-individual">4. Top drivers for every individual</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../usage_guide.html#single-individual-egfr40-risk">Single individual: <code class="docutils literal notranslate"><span class="pre">egfr40_risk</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage_guide.html#explaining-an-individual-s-risk">Explaining an individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage_guide.html#cohorts-add-egfr40-risk-col">Cohorts: <code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../usage_guide.html#example-five-individuals-one-risk-score-each">Example: five individuals, one risk score each</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../inputs.html">Input Requirements and Common Pitfalls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../inputs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inputs.html#common-pitfalls">Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../egfr.html">eGFR (CKD-EPI 2021)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../egfr.html#the-equation">The equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../conversions.html">uPCR and Dipstick to uACR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conversions.html#upcr-to-uacr">uPCR to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conversions.html#dipstick-to-uacr">Dipstick to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conversions.html#unit-conversion">Unit conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nhanes.html">NHANES Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nhanes.html#how-nhanes-variables-are-coded">How NHANES variables are coded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nhanes.html#prior-work">Prior work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#risk">Risk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.egfr40_risk"><code class="docutils literal notranslate"><span class="pre">egfr40_risk()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.add_egfr40_risk_col"><code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#egfr">eGFR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.ckd_epi_2021"><code class="docutils literal notranslate"><span class="pre">ckd_epi_2021()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#conversions">Conversions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.pcr_to_acr"><code class="docutils literal notranslate"><span class="pre">pcr_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.dipstick_to_acr"><code class="docutils literal notranslate"><span class="pre">dipstick_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.acr_mg_mmol_to_mg_g"><code class="docutils literal notranslate"><span class="pre">acr_mg_mmol_to_mg_g()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#egfr40.acr_mg_g_to_mg_mmol"><code class="docutils literal notranslate"><span class="pre">acr_mg_g_to_mg_mmol()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About egfr40</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">The Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#outcome">Outcome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#the-equation">The equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#the-egfr-60-boundary">The eGFR 60 boundary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#what-is-not-implemented">What is not implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html#discrimination">Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors/Maintainers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing egfr40</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-1a3-2026-11-21">Version 0.0.1a3 (2026-11-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-1a2-2026-11-18">Version 0.0.1a2 (2026-11-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-1a1-2026-11-18">Version 0.0.1a1 (2026-11-18)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">egfr40</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview: module code</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<img src="../_static/egfr40_logo.svg" alt="egfr40 Python library"
+     width="200" class="egfr40-logo" draggable="false" oncontextmenu="return false;">
+
+           <div itemprop="articleBody">
+             
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="egfr40/convert.html">egfr40.convert</a></li>
+<li><a href="egfr40/egfr.html">egfr40.egfr</a></li>
+<li><a href="egfr40/risk.html">egfr40.risk</a></li>
+</ul>
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Leon Shpaner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

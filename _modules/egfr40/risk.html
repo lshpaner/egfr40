@@ -1,0 +1,575 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>egfr40.risk &mdash; egfr40 0.0.1a3</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=f9bb85ce" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=56909cd4"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=fd10adb8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            egfr40
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#score-one-individual">Score one individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#score-a-cohort">Score a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#library-overview">Library overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../_notebooks/00_quickstart.html">egfr40 quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/00_quickstart.html#a-small-cohort">1. A small cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/00_quickstart.html#add-a-risk-column-for-every-individual">2. Add a risk column for every individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/00_quickstart.html#what-drives-one-individual-s-risk">3. What drives one individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_notebooks/00_quickstart.html#top-drivers-for-every-individual">4. Top drivers for every individual</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage_guide.html">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide.html#single-individual-egfr40-risk">Single individual: <code class="docutils literal notranslate"><span class="pre">egfr40_risk</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide.html#explaining-an-individual-s-risk">Explaining an individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide.html#cohorts-add-egfr40-risk-col">Cohorts: <code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../usage_guide.html#example-five-individuals-one-risk-score-each">Example: five individuals, one risk score each</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../inputs.html">Input Requirements and Common Pitfalls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../inputs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../inputs.html#common-pitfalls">Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../egfr.html">eGFR (CKD-EPI 2021)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../egfr.html#the-equation">The equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../conversions.html">uPCR and Dipstick to uACR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../conversions.html#upcr-to-uacr">uPCR to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../conversions.html#dipstick-to-uacr">Dipstick to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../conversions.html#unit-conversion">Unit conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../nhanes.html">NHANES Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nhanes.html#how-nhanes-variables-are-coded">How NHANES variables are coded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nhanes.html#prior-work">Prior work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#risk">Risk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#egfr40.egfr40_risk"><code class="docutils literal notranslate"><span class="pre">egfr40_risk()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#egfr40.add_egfr40_risk_col"><code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#egfr">eGFR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#egfr40.ckd_epi_2021"><code class="docutils literal notranslate"><span class="pre">ckd_epi_2021()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#conversions">Conversions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#egfr40.pcr_to_acr"><code class="docutils literal notranslate"><span class="pre">pcr_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#egfr40.dipstick_to_acr"><code class="docutils literal notranslate"><span class="pre">dipstick_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#egfr40.acr_mg_mmol_to_mg_g"><code class="docutils literal notranslate"><span class="pre">acr_mg_mmol_to_mg_g()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#egfr40.acr_mg_g_to_mg_mmol"><code class="docutils literal notranslate"><span class="pre">acr_mg_g_to_mg_mmol()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About egfr40</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../model.html">The Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#outcome">Outcome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#the-equation">The equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#the-egfr-60-boundary">The eGFR 60 boundary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#what-is-not-implemented">What is not implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../model.html#discrimination">Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors.html">Contributors/Maintainers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citing.html">Citing egfr40</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-1a3-2026-11-21">Version 0.0.1a3 (2026-11-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-1a2-2026-11-18">Version 0.0.1a2 (2026-11-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-1a1-2026-11-18">Version 0.0.1a1 (2026-11-18)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">egfr40</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">egfr40.risk</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<img src="../../_static/egfr40_logo.svg" alt="egfr40 Python library"
+     width="200" class="egfr40-logo" draggable="false" oncontextmenu="return false;">
+
+           <div itemprop="articleBody">
+             
+  <h1>Source code for egfr40.risk</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># CKD-PC 40% eGFR decline risk equation (3-year probability)</span>
+<span class="c1"># Grams ME et al. Diabetes Care 2022;45(9):2055-2063, Supplemental Table S5</span>
+<span class="c1"># Strata keyed by (eGFR &gt;= 60, diabetes)</span>
+<span class="n">_COEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span> <span class="p">{</span>
+        <span class="s2">"const"</span><span class="p">:</span> <span class="o">-</span><span class="mf">4.7045</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="mf">0.3690</span><span class="p">,</span> <span class="s2">"male"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1433</span><span class="p">,</span> <span class="s2">"egfr"</span><span class="p">:</span> <span class="mf">0.0325</span><span class="p">,</span>
+        <span class="s2">"lnacr"</span><span class="p">:</span> <span class="mf">0.4190</span><span class="p">,</span> <span class="s2">"sbp"</span><span class="p">:</span> <span class="mf">0.3048</span><span class="p">,</span> <span class="s2">"bpmed"</span><span class="p">:</span> <span class="mf">0.2656</span><span class="p">,</span> <span class="s2">"sbp_bpmed"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1140</span><span class="p">,</span>
+        <span class="s2">"hf"</span><span class="p">:</span> <span class="mf">1.0534</span><span class="p">,</span> <span class="s2">"chd"</span><span class="p">:</span> <span class="mf">0.4102</span><span class="p">,</span> <span class="s2">"afib"</span><span class="p">:</span> <span class="mf">0.1140</span><span class="p">,</span> <span class="s2">"current_smoker"</span><span class="p">:</span> <span class="mf">0.3803</span><span class="p">,</span>
+        <span class="s2">"former_smoker"</span><span class="p">:</span> <span class="mf">0.1862</span><span class="p">,</span> <span class="s2">"bmi"</span><span class="p">:</span> <span class="mf">0.0425</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span> <span class="p">{</span>
+        <span class="s2">"const"</span><span class="p">:</span> <span class="o">-</span><span class="mf">4.2125</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="mf">0.1465</span><span class="p">,</span> <span class="s2">"male"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.2481</span><span class="p">,</span> <span class="s2">"egfr"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0562</span><span class="p">,</span>
+        <span class="s2">"lnacr"</span><span class="p">:</span> <span class="mf">0.4098</span><span class="p">,</span> <span class="s2">"sbp"</span><span class="p">:</span> <span class="mf">0.1518</span><span class="p">,</span> <span class="s2">"bpmed"</span><span class="p">:</span> <span class="mf">0.2846</span><span class="p">,</span> <span class="s2">"sbp_bpmed"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0321</span><span class="p">,</span>
+        <span class="s2">"hf"</span><span class="p">:</span> <span class="mf">0.9234</span><span class="p">,</span> <span class="s2">"chd"</span><span class="p">:</span> <span class="mf">0.2168</span><span class="p">,</span> <span class="s2">"afib"</span><span class="p">:</span> <span class="mf">0.3087</span><span class="p">,</span> <span class="s2">"current_smoker"</span><span class="p">:</span> <span class="mf">0.1186</span><span class="p">,</span>
+        <span class="s2">"former_smoker"</span><span class="p">:</span> <span class="mf">0.0777</span><span class="p">,</span> <span class="s2">"bmi"</span><span class="p">:</span> <span class="mf">0.0308</span><span class="p">,</span>
+        <span class="s2">"hba1c"</span><span class="p">:</span> <span class="mf">0.0987</span><span class="p">,</span> <span class="s2">"oral_dm"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0638</span><span class="p">,</span> <span class="s2">"insulin"</span><span class="p">:</span> <span class="mf">0.2359</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span> <span class="p">{</span>
+        <span class="s2">"const"</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.4540</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0796</span><span class="p">,</span> <span class="s2">"male"</span><span class="p">:</span> <span class="mf">0.0626</span><span class="p">,</span> <span class="s2">"egfr"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1672</span><span class="p">,</span>
+        <span class="s2">"lnacr"</span><span class="p">:</span> <span class="mf">0.3915</span><span class="p">,</span> <span class="s2">"sbp"</span><span class="p">:</span> <span class="mf">0.2373</span><span class="p">,</span> <span class="s2">"bpmed"</span><span class="p">:</span> <span class="mf">0.0790</span><span class="p">,</span> <span class="s2">"sbp_bpmed"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0214</span><span class="p">,</span>
+        <span class="s2">"hf"</span><span class="p">:</span> <span class="mf">0.4898</span><span class="p">,</span> <span class="s2">"chd"</span><span class="p">:</span> <span class="mf">0.2343</span><span class="p">,</span> <span class="s2">"afib"</span><span class="p">:</span> <span class="mf">0.0739</span><span class="p">,</span> <span class="s2">"current_smoker"</span><span class="p">:</span> <span class="mf">0.2903</span><span class="p">,</span>
+        <span class="s2">"former_smoker"</span><span class="p">:</span> <span class="mf">0.1725</span><span class="p">,</span> <span class="s2">"bmi"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0231</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span> <span class="p">{</span>
+        <span class="s2">"const"</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.2874</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1725</span><span class="p">,</span> <span class="s2">"male"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1452</span><span class="p">,</span> <span class="s2">"egfr"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0769</span><span class="p">,</span>
+        <span class="s2">"lnacr"</span><span class="p">:</span> <span class="mf">0.4658</span><span class="p">,</span> <span class="s2">"sbp"</span><span class="p">:</span> <span class="mf">0.2068</span><span class="p">,</span> <span class="s2">"bpmed"</span><span class="p">:</span> <span class="mf">0.1665</span><span class="p">,</span> <span class="s2">"sbp_bpmed"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0549</span><span class="p">,</span>
+        <span class="s2">"hf"</span><span class="p">:</span> <span class="mf">0.4216</span><span class="p">,</span> <span class="s2">"chd"</span><span class="p">:</span> <span class="mf">0.2173</span><span class="p">,</span> <span class="s2">"afib"</span><span class="p">:</span> <span class="mf">0.0456</span><span class="p">,</span> <span class="s2">"current_smoker"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0338</span><span class="p">,</span>
+        <span class="s2">"former_smoker"</span><span class="p">:</span> <span class="mf">0.1386</span><span class="p">,</span> <span class="s2">"bmi"</span><span class="p">:</span> <span class="mf">0.0253</span><span class="p">,</span>
+        <span class="s2">"hba1c"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0031</span><span class="p">,</span> <span class="s2">"oral_dm"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1232</span><span class="p">,</span> <span class="s2">"insulin"</span><span class="p">:</span> <span class="mf">0.0980</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_contributions</span><span class="p">(</span><span class="n">high_egfr</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Each term's contribution to the linear predictor (log-odds) for one stratum."""</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">_COEFS</span><span class="p">[(</span><span class="n">high_egfr</span><span class="p">,</span> <span class="n">dm</span><span class="p">)]</span>
+    <span class="n">egfr_center</span> <span class="o">=</span> <span class="mi">85</span> <span class="k">if</span> <span class="n">high_egfr</span> <span class="k">else</span> <span class="mi">45</span>
+    <span class="n">sbp_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"sbp"</span><span class="p">]</span> <span class="o">-</span> <span class="mi">130</span><span class="p">)</span> <span class="o">/</span> <span class="mi">20</span>
+    <span class="n">terms</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"age"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"age"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"age"</span><span class="p">]</span> <span class="o">-</span> <span class="mi">60</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"sex"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"male"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"male"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">),</span>
+        <span class="s2">"egfr"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"egfr"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"egfr"</span><span class="p">]</span> <span class="o">-</span> <span class="n">egfr_center</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">"uacr"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"lnacr"</span><span class="p">]</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"uacr"</span><span class="p">]</span> <span class="o">/</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="s2">"sbp"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"sbp"</span><span class="p">]</span> <span class="o">*</span> <span class="n">sbp_c</span><span class="p">,</span>
+        <span class="s2">"bp_meds"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"bpmed"</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="s2">"bp_meds"</span><span class="p">],</span>
+        <span class="s2">"sbp_x_bp_meds"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"sbp_bpmed"</span><span class="p">]</span> <span class="o">*</span> <span class="n">sbp_c</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="s2">"bp_meds"</span><span class="p">],</span>
+        <span class="s2">"hf"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"hf"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"hf"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.05</span><span class="p">),</span>
+        <span class="s2">"chd"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"chd"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"chd"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.15</span><span class="p">),</span>
+        <span class="s2">"afib"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"afib"</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="s2">"afib"</span><span class="p">],</span>
+        <span class="s2">"smoking"</span><span class="p">:</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="s2">"current_smoker"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"smoking"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"current"</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"former_smoker"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"smoking"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"former"</span><span class="p">)),</span>
+        <span class="s2">"bmi"</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">"bmi"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"bmi"</span><span class="p">]</span> <span class="o">-</span> <span class="mi">30</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">dm</span><span class="p">:</span>
+        <span class="n">terms</span><span class="p">[</span><span class="s2">"hba1c"</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="s2">"hba1c"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"hba1c"</span><span class="p">]</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span>
+        <span class="n">terms</span><span class="p">[</span><span class="s2">"oral_dm"</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="s2">"oral_dm"</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="s2">"oral_dm"</span><span class="p">]</span>
+        <span class="n">terms</span><span class="p">[</span><span class="s2">"insulin"</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="s2">"insulin"</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="s2">"insulin"</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">b</span><span class="p">[</span><span class="s2">"const"</span><span class="p">],</span> <span class="n">terms</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_stratum_explain</span><span class="p">(</span><span class="n">high_egfr</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">const</span><span class="p">,</span> <span class="n">terms</span> <span class="o">=</span> <span class="n">_contributions</span><span class="p">(</span><span class="n">high_egfr</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">lp</span> <span class="o">=</span> <span class="n">const</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">terms</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"risk"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lp</span><span class="p">)),</span>
+        <span class="s2">"stratum"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'DM'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">dm</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'No DM'</span><span class="si">}</span><span class="s2">, eGFR </span><span class="si">{</span><span class="s1">'&gt;=60'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">high_egfr</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'&lt;60'</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="s2">"intercept"</span><span class="p">:</span> <span class="n">const</span><span class="p">,</span>
+        <span class="s2">"linear_predictor"</span><span class="p">:</span> <span class="n">lp</span><span class="p">,</span>
+        <span class="s2">"contributions"</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">terms</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span> <span class="o">-</span><span class="nb">abs</span><span class="p">(</span><span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))),</span>
+    <span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_stratum_risk</span><span class="p">(</span><span class="n">high_egfr</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_stratum_explain</span><span class="p">(</span><span class="n">high_egfr</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">x</span><span class="p">)[</span><span class="s2">"risk"</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="egfr40_risk">
+<a class="viewcode-back" href="../../api.html#egfr40.egfr40_risk">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">egfr40_risk</span><span class="p">(</span>
+    <span class="n">age</span><span class="p">,</span>
+    <span class="n">male</span><span class="p">,</span>
+    <span class="n">egfr</span><span class="p">,</span>
+    <span class="n">uacr</span><span class="p">,</span>
+    <span class="n">sbp</span><span class="p">,</span>
+    <span class="n">bp_meds</span><span class="p">,</span>
+    <span class="n">hf</span><span class="p">,</span>
+    <span class="n">chd</span><span class="p">,</span>
+    <span class="n">afib</span><span class="p">,</span>
+    <span class="n">smoking</span><span class="p">,</span>
+    <span class="n">bmi</span><span class="p">,</span>
+    <span class="n">dm</span><span class="p">,</span>
+    <span class="n">hba1c</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">oral_dm</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">insulin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">explain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""3-year probability of a &gt;=40% eGFR decline or kidney failure.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    age : float</span>
+<span class="sd">        Age in years.</span>
+<span class="sd">    male : int</span>
+<span class="sd">        1 = male, 0 = female.</span>
+<span class="sd">    egfr : float</span>
+<span class="sd">        eGFR in mL/min/1.73 m^2, from the CKD-EPI 2021 creatinine equation.</span>
+<span class="sd">    uacr : float</span>
+<span class="sd">        Urine albumin-to-creatinine ratio in mg/g. Must be greater than 0.</span>
+<span class="sd">    sbp : float</span>
+<span class="sd">        Systolic blood pressure in mmHg.</span>
+<span class="sd">    bp_meds : int</span>
+<span class="sd">        Antihypertensive medication use (1/0).</span>
+<span class="sd">    hf : int</span>
+<span class="sd">        History of heart failure (1/0).</span>
+<span class="sd">    chd : int</span>
+<span class="sd">        History of coronary heart disease (1/0).</span>
+<span class="sd">    afib : int</span>
+<span class="sd">        History of atrial fibrillation (1/0).</span>
+<span class="sd">    smoking : {'never', 'former', 'current'}</span>
+<span class="sd">        Smoking status.</span>
+<span class="sd">    bmi : float</span>
+<span class="sd">        Body mass index in kg/m^2.</span>
+<span class="sd">    dm : bool</span>
+<span class="sd">        Diabetes. Required: selects the diabetes or no-diabetes model.</span>
+<span class="sd">    hba1c : float, optional</span>
+<span class="sd">        HbA1c in percent. Required when ``dm`` is True.</span>
+<span class="sd">    oral_dm : int, default 0</span>
+<span class="sd">        Oral diabetes medication (1/0). Used only when ``dm`` is True.</span>
+<span class="sd">    insulin : int, default 0</span>
+<span class="sd">        Insulin use (1/0). Used only when ``dm`` is True.</span>
+<span class="sd">    explain : bool, default False</span>
+<span class="sd">        Return a breakdown instead of just the risk.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float or dict</span>
+<span class="sd">        The 3-year probability, between 0 and 1. At eGFR == 60 the two eGFR</span>
+<span class="sd">        strata are averaged, as on ckdpcrisk.org.</span>
+
+<span class="sd">        With ``explain=True``, a dict with ``risk``, ``stratum``,</span>
+<span class="sd">        ``intercept``, ``linear_predictor`` (log-odds) and ``contributions``</span>
+<span class="sd">        (each predictor's log-odds contribution, largest first). Positive</span>
+<span class="sd">        contributions raise risk relative to the reference individual: age 60,</span>
+<span class="sd">        eGFR at the stratum center (85 or 45), uACR 10 mg/g, SBP 130, BMI 30,</span>
+<span class="sd">        HbA1c 7%, never smoker, no BP or diabetes medication, and HF and CHD at</span>
+<span class="sd">        their centering values of 0.05 and 0.15 (so an individual without HF or CHD</span>
+<span class="sd">        gets a small negative contribution for each). At eGFR == 60, a dict with</span>
+<span class="sd">        the averaged ``risk`` and both breakdowns under ``strata``.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If ``hba1c`` is missing for an individual with diabetes, ``uacr`` is not</span>
+<span class="sd">        positive, or ``smoking`` is not a recognized value.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; egfr40_risk(age=70, male=1, egfr=40, uacr=150, sbp=140, bp_meds=1,</span>
+<span class="sd">    ...             hf=0, chd=1, afib=1, smoking="former", bmi=28,</span>
+<span class="sd">    ...             dm=True, hba1c=7)  # doctest: +ELLIPSIS</span>
+<span class="sd">    0.166...</span>
+<span class="sd">    """</span>
+
+    <span class="k">if</span> <span class="n">dm</span> <span class="ow">and</span> <span class="n">hba1c</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"hba1c is required when dm=True"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">uacr</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"uacr must be &gt; 0"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">smoking</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"never"</span><span class="p">,</span> <span class="s2">"former"</span><span class="p">,</span> <span class="s2">"current"</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"smoking must be 'never', 'former', or 'current'"</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">age</span><span class="o">=</span><span class="n">age</span><span class="p">,</span> <span class="n">male</span><span class="o">=</span><span class="n">male</span><span class="p">,</span> <span class="n">egfr</span><span class="o">=</span><span class="n">egfr</span><span class="p">,</span> <span class="n">uacr</span><span class="o">=</span><span class="n">uacr</span><span class="p">,</span> <span class="n">sbp</span><span class="o">=</span><span class="n">sbp</span><span class="p">,</span> <span class="n">bp_meds</span><span class="o">=</span><span class="n">bp_meds</span><span class="p">,</span>
+        <span class="n">hf</span><span class="o">=</span><span class="n">hf</span><span class="p">,</span> <span class="n">chd</span><span class="o">=</span><span class="n">chd</span><span class="p">,</span> <span class="n">afib</span><span class="o">=</span><span class="n">afib</span><span class="p">,</span> <span class="n">smoking</span><span class="o">=</span><span class="n">smoking</span><span class="p">,</span> <span class="n">bmi</span><span class="o">=</span><span class="n">bmi</span><span class="p">,</span>
+        <span class="n">hba1c</span><span class="o">=</span><span class="n">hba1c</span><span class="p">,</span> <span class="n">oral_dm</span><span class="o">=</span><span class="n">oral_dm</span><span class="p">,</span> <span class="n">insulin</span><span class="o">=</span><span class="n">insulin</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">egfr</span> <span class="o">==</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="n">hi</span><span class="p">,</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">_stratum_explain</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">_stratum_explain</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">risk</span> <span class="o">=</span> <span class="p">(</span><span class="n">hi</span><span class="p">[</span><span class="s2">"risk"</span><span class="p">]</span> <span class="o">+</span> <span class="n">lo</span><span class="p">[</span><span class="s2">"risk"</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">explain</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s2">"risk"</span><span class="p">:</span> <span class="n">risk</span><span class="p">,</span> <span class="s2">"stratum"</span><span class="p">:</span> <span class="s2">"averaged at eGFR 60"</span><span class="p">,</span> <span class="s2">"strata"</span><span class="p">:</span> <span class="p">[</span><span class="n">hi</span><span class="p">,</span> <span class="n">lo</span><span class="p">]}</span>
+        <span class="k">return</span> <span class="n">risk</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">_stratum_explain</span><span class="p">(</span><span class="n">egfr</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span> <span class="k">if</span> <span class="n">explain</span> <span class="k">else</span> <span class="n">out</span><span class="p">[</span><span class="s2">"risk"</span><span class="p">]</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_to_binary</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Coerce a yes/no column to 1.0/0.0 (NaN stays NaN)."""</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">object</span> <span class="ow">or</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_string_dtype</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">])]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"0"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">,</span> <span class="s2">"f"</span><span class="p">])]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">bad</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">out</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">bad</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unrecognized values in '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">': </span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="n">bad</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_to_male</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Coerce a sex column (text or 1/0) to 1.0 = male, 0.0 = female."""</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">object</span> <span class="ow">or</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_string_dtype</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"male"</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">])]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"female"</span><span class="p">,</span> <span class="s2">"f"</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">])]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">return</span> <span class="n">out</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_lp_vectorized</span><span class="p">(</span><span class="n">high_egfr</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Linear predictor for one stratum, applied to every row of d."""</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">_COEFS</span><span class="p">[(</span><span class="n">high_egfr</span><span class="p">,</span> <span class="n">dm</span><span class="p">)]</span>
+    <span class="n">egfr_center</span> <span class="o">=</span> <span class="mi">85</span> <span class="k">if</span> <span class="n">high_egfr</span> <span class="k">else</span> <span class="mi">45</span>
+    <span class="n">sbp_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"sbp"</span><span class="p">]</span> <span class="o">-</span> <span class="mi">130</span><span class="p">)</span> <span class="o">/</span> <span class="mi">20</span>
+
+    <span class="n">lp</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">b</span><span class="p">[</span><span class="s2">"const"</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"age"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"age"</span><span class="p">]</span> <span class="o">-</span> <span class="mi">60</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"male"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"male"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"egfr"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"egfr"</span><span class="p">]</span> <span class="o">-</span> <span class="n">egfr_center</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"lnacr"</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"uacr"</span><span class="p">]</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"sbp"</span><span class="p">]</span> <span class="o">*</span> <span class="n">sbp_c</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"bpmed"</span><span class="p">]</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s2">"bp_meds"</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"sbp_bpmed"</span><span class="p">]</span> <span class="o">*</span> <span class="n">sbp_c</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s2">"bp_meds"</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"hf"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"hf"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.05</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"chd"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"chd"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.15</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"afib"</span><span class="p">]</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s2">"afib"</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"current_smoker"</span><span class="p">]</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s2">"current"</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"former_smoker"</span><span class="p">]</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s2">"former"</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"bmi"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"bmi"</span><span class="p">]</span> <span class="o">-</span> <span class="mi">30</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">dm</span><span class="p">:</span>
+        <span class="n">lp</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">lp</span>
+            <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"hba1c"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"hba1c"</span><span class="p">]</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"oral_dm"</span><span class="p">]</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s2">"oral_dm"</span><span class="p">]</span>
+            <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="s2">"insulin"</span><span class="p">]</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s2">"insulin"</span><span class="p">]</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">lp</span>
+
+
+<div class="viewcode-block" id="add_egfr40_risk_col">
+<a class="viewcode-back" href="../../api.html#egfr40.add_egfr40_risk_col">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_egfr40_risk_col</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">age_col</span><span class="o">=</span><span class="s2">"age"</span><span class="p">,</span>
+    <span class="n">sex_col</span><span class="o">=</span><span class="s2">"sex"</span><span class="p">,</span>
+    <span class="n">egfr_col</span><span class="o">=</span><span class="s2">"eGFR"</span><span class="p">,</span>
+    <span class="n">uacr_col</span><span class="o">=</span><span class="s2">"uACR"</span><span class="p">,</span>
+    <span class="n">sbp_col</span><span class="o">=</span><span class="s2">"sbp"</span><span class="p">,</span>
+    <span class="n">bp_meds_col</span><span class="o">=</span><span class="s2">"bp_meds"</span><span class="p">,</span>
+    <span class="n">hf_col</span><span class="o">=</span><span class="s2">"hf"</span><span class="p">,</span>
+    <span class="n">chd_col</span><span class="o">=</span><span class="s2">"chd"</span><span class="p">,</span>
+    <span class="n">afib_col</span><span class="o">=</span><span class="s2">"afib"</span><span class="p">,</span>
+    <span class="n">smoking_col</span><span class="o">=</span><span class="s2">"smoking"</span><span class="p">,</span>
+    <span class="n">bmi_col</span><span class="o">=</span><span class="s2">"bmi"</span><span class="p">,</span>
+    <span class="n">dm_col</span><span class="o">=</span><span class="s2">"dm"</span><span class="p">,</span>
+    <span class="n">hba1c_col</span><span class="o">=</span><span class="s2">"hba1c"</span><span class="p">,</span>
+    <span class="n">oral_dm_col</span><span class="o">=</span><span class="s2">"oral_dm"</span><span class="p">,</span>
+    <span class="n">insulin_col</span><span class="o">=</span><span class="s2">"insulin"</span><span class="p">,</span>
+    <span class="n">risk_col</span><span class="o">=</span><span class="s2">"egfr40_3year"</span><span class="p">,</span>
+    <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Add the 3-year &gt;=40% eGFR decline risk to every row of a DataFrame.</span>
+
+<span class="sd">    Each row is scored with its own stratum (eGFR &gt;=60 or &lt;60, with or without</span>
+<span class="sd">    diabetes). Rows at exactly eGFR 60 get the average of the two eGFR strata,</span>
+<span class="sd">    as on ckdpcrisk.org.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pandas.DataFrame</span>
+<span class="sd">        One row per individual.</span>
+<span class="sd">    age_col, sex_col, egfr_col, uacr_col, sbp_col, bp_meds_col : str</span>
+<span class="sd">        Column names for age (years), sex, eGFR (CKD-EPI 2021), uACR (mg/g),</span>
+<span class="sd">        systolic BP (mmHg) and antihypertensive medication use.</span>
+<span class="sd">    hf_col, chd_col, afib_col : str</span>
+<span class="sd">        Column names for history of heart failure, coronary heart disease and</span>
+<span class="sd">        atrial fibrillation.</span>
+<span class="sd">    smoking_col, bmi_col : str</span>
+<span class="sd">        Column names for smoking status and BMI (kg/m^2).</span>
+<span class="sd">    dm_col, hba1c_col, oral_dm_col, insulin_col : str</span>
+<span class="sd">        Column names for diabetes, HbA1c (%), oral diabetes medication and</span>
+<span class="sd">        insulin. The last three are used only for rows with diabetes and may</span>
+<span class="sd">        be absent from ``df`` if no row has diabetes.</span>
+<span class="sd">    risk_col : str, default "egfr40_3year"</span>
+<span class="sd">        Name of the new risk column.</span>
+<span class="sd">    copy : bool, default True</span>
+<span class="sd">        Work on a copy and leave ``df`` unchanged.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        ``df`` (or a copy) with ``risk_col`` added, holding probabilities</span>
+<span class="sd">        between 0 and 1.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Sex accepts ``"male"``/``"female"``, ``"m"``/``"f"`` or 1/0. Yes/no</span>
+<span class="sd">    columns (BP medication, HF, CHD, AFib, diabetes, oral diabetes medication,</span>
+<span class="sd">    insulin) accept 1/0 or ``"yes"``/``"no"``. Smoking accepts ``"never"``,</span>
+<span class="sd">    ``"former"`` or ``"current"``.</span>
+
+<span class="sd">    A row with any required input missing gets ``NaN``. HbA1c, oral diabetes</span>
+<span class="sd">    medication and insulin are required only for rows with diabetes; missing</span>
+<span class="sd">    values there give ``NaN`` rather than being treated as 0.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If a smoking or yes/no column contains an unrecognized value.</span>
+<span class="sd">    """</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">if</span> <span class="n">copy</span> <span class="k">else</span> <span class="n">df</span>
+
+    <span class="n">smk</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="n">smoking_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">smk</span> <span class="o">=</span> <span class="n">smk</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">smoking_col</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">())</span>
+    <span class="n">bad_smk</span> <span class="o">=</span> <span class="n">smk</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">smk</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"never"</span><span class="p">,</span> <span class="s2">"former"</span><span class="p">,</span> <span class="s2">"current"</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">bad_smk</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Unrecognized values in '</span><span class="si">{</span><span class="n">smoking_col</span><span class="si">}</span><span class="s2">': </span><span class="si">{</span><span class="n">out</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bad_smk</span><span class="p">,</span><span class="w"> </span><span class="n">smoking_col</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+    <span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">"age"</span><span class="p">:</span> <span class="n">out</span><span class="p">[</span><span class="n">age_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">"male"</span><span class="p">:</span> <span class="n">_to_male</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">sex_col</span><span class="p">]),</span>
+            <span class="s2">"egfr"</span><span class="p">:</span> <span class="n">out</span><span class="p">[</span><span class="n">egfr_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">"uacr"</span><span class="p">:</span> <span class="n">out</span><span class="p">[</span><span class="n">uacr_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">"sbp"</span><span class="p">:</span> <span class="n">out</span><span class="p">[</span><span class="n">sbp_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">"bp_meds"</span><span class="p">:</span> <span class="n">_to_binary</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">bp_meds_col</span><span class="p">],</span> <span class="n">bp_meds_col</span><span class="p">),</span>
+            <span class="s2">"hf"</span><span class="p">:</span> <span class="n">_to_binary</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">hf_col</span><span class="p">],</span> <span class="n">hf_col</span><span class="p">),</span>
+            <span class="s2">"chd"</span><span class="p">:</span> <span class="n">_to_binary</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">chd_col</span><span class="p">],</span> <span class="n">chd_col</span><span class="p">),</span>
+            <span class="s2">"afib"</span><span class="p">:</span> <span class="n">_to_binary</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">afib_col</span><span class="p">],</span> <span class="n">afib_col</span><span class="p">),</span>
+            <span class="s2">"current"</span><span class="p">:</span> <span class="p">(</span><span class="n">smk</span> <span class="o">==</span> <span class="s2">"current"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">smk</span><span class="o">.</span><span class="n">notna</span><span class="p">()),</span>
+            <span class="s2">"former"</span><span class="p">:</span> <span class="p">(</span><span class="n">smk</span> <span class="o">==</span> <span class="s2">"former"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">smk</span><span class="o">.</span><span class="n">notna</span><span class="p">()),</span>
+            <span class="s2">"bmi"</span><span class="p">:</span> <span class="n">out</span><span class="p">[</span><span class="n">bmi_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">"dm"</span><span class="p">:</span> <span class="n">_to_binary</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">dm_col</span><span class="p">],</span> <span class="n">dm_col</span><span class="p">),</span>
+        <span class="p">},</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">src</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">"hba1c"</span><span class="p">,</span> <span class="n">hba1c_col</span><span class="p">),</span> <span class="p">(</span><span class="s2">"oral_dm"</span><span class="p">,</span> <span class="n">oral_dm_col</span><span class="p">),</span> <span class="p">(</span><span class="s2">"insulin"</span><span class="p">,</span> <span class="n">insulin_col</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">src</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="n">src</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="k">if</span> <span class="n">col</span> <span class="o">==</span> <span class="s2">"hba1c"</span> <span class="k">else</span> <span class="n">_to_binary</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">src</span><span class="p">],</span> <span class="n">src</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="c1"># uACR must be positive for the log</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">"uacr"</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"uacr"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">prob</span><span class="p">(</span><span class="n">lp</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lp</span><span class="p">))</span>
+
+    <span class="n">risk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">dm</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s2">"dm"</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="mf">1.0</span> <span class="k">if</span> <span class="n">dm</span> <span class="k">else</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mask</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="n">sub</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+        <span class="n">p_hi</span> <span class="o">=</span> <span class="n">prob</span><span class="p">(</span><span class="n">_lp_vectorized</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">sub</span><span class="p">))</span>
+        <span class="n">p_lo</span> <span class="o">=</span> <span class="n">prob</span><span class="p">(</span><span class="n">_lp_vectorized</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">dm</span><span class="p">,</span> <span class="n">sub</span><span class="p">))</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="s2">"egfr"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">,</span> <span class="n">p_hi</span><span class="p">,</span> <span class="n">p_lo</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="s2">"egfr"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">60</span><span class="p">,</span> <span class="p">(</span><span class="n">p_hi</span> <span class="o">+</span> <span class="n">p_lo</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="s2">"egfr"</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="n">risk</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+
+    <span class="n">out</span><span class="p">[</span><span class="n">risk_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">risk</span>
+    <span class="k">return</span> <span class="n">out</span></div>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"egfr40_risk"</span><span class="p">,</span> <span class="s2">"add_egfr40_risk_col"</span><span class="p">]</span>
+</pre></div>
+
+           </div>
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Leon Shpaner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

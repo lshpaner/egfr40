@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Model &mdash; egfr40 0.0.1a3</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f9bb85ce" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=56909cd4"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=fd10adb8"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributors/Maintainers" href="contributors.html" />
+    <link rel="prev" title="API Reference" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            egfr40
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-one-individual">Score one individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-a-cohort">Score a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#library-overview">Library overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_notebooks/00_quickstart.html">egfr40 quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#a-small-cohort">1. A small cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#add-a-risk-column-for-every-individual">2. Add a risk column for every individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#what-drives-one-individual-s-risk">3. What drives one individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#top-drivers-for-every-individual">4. Top drivers for every individual</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#single-individual-egfr40-risk">Single individual: <code class="docutils literal notranslate"><span class="pre">egfr40_risk</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#explaining-an-individual-s-risk">Explaining an individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#cohorts-add-egfr40-risk-col">Cohorts: <code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage_guide.html#example-five-individuals-one-risk-score-each">Example: five individuals, one risk score each</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Input Requirements and Common Pitfalls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#common-pitfalls">Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="egfr.html">eGFR (CKD-EPI 2021)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="egfr.html#the-equation">The equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conversions.html">uPCR and Dipstick to uACR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#upcr-to-uacr">uPCR to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#dipstick-to-uacr">Dipstick to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#unit-conversion">Unit conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nhanes.html">NHANES Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nhanes.html#how-nhanes-variables-are-coded">How NHANES variables are coded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nhanes.html#prior-work">Prior work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#risk">Risk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.egfr40_risk"><code class="docutils literal notranslate"><span class="pre">egfr40_risk()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.add_egfr40_risk_col"><code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#egfr">eGFR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.ckd_epi_2021"><code class="docutils literal notranslate"><span class="pre">ckd_epi_2021()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#conversions">Conversions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.pcr_to_acr"><code class="docutils literal notranslate"><span class="pre">pcr_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.dipstick_to_acr"><code class="docutils literal notranslate"><span class="pre">dipstick_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.acr_mg_mmol_to_mg_g"><code class="docutils literal notranslate"><span class="pre">acr_mg_mmol_to_mg_g()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.acr_mg_g_to_mg_mmol"><code class="docutils literal notranslate"><span class="pre">acr_mg_g_to_mg_mmol()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About egfr40</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#outcome">Outcome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-equation">The equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-egfr-60-boundary">The eGFR 60 boundary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-not-implemented">What is not implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#discrimination">Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors/Maintainers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing egfr40</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a3-2026-11-21">Version 0.0.1a3 (2026-11-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a2-2026-11-18">Version 0.0.1a2 (2026-11-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a1-2026-11-18">Version 0.0.1a1 (2026-11-18)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">egfr40</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The Model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/model.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<img src="_static/egfr40_logo.svg" alt="egfr40 Python library"
+     width="200" class="egfr40-logo" draggable="false" oncontextmenu="return false;">
+
+           <div itemprop="articleBody">
+             
+  <section id="the-model">
+<h1>The Model<a class="headerlink" href="#the-model" title="Link to this heading"></a></h1>
+<section id="outcome">
+<h2>Outcome<a class="headerlink" href="#outcome" title="Link to this heading"></a></h2>
+<p>The model predicts a composite of a ≥40% decline in eGFR or kidney failure
+(receipt of kidney replacement therapy) over 2 to 3 years. A 40% eGFR decline
+is accepted as a surrogate kidney endpoint by the U.S. Food and Drug
+Administration and the European Medicines Agency.</p>
+</section>
+<section id="development">
+<h2>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h2>
+<p>Grams et al. (2022) developed the model in an individual participant data
+meta-analysis of 1,621,817 participants from 43 cohorts in the CKD Prognosis
+Consortium. A logistic regression was fit in each development cohort and the
+estimates were pooled by random-effects meta-analysis. Separate models were fit
+within four strata: diabetes or not, and eGFR ≥60 or &lt;60 mL/min/1.73 m².</p>
+<p><code class="docutils literal notranslate"><span class="pre">egfr40</span></code> implements model 2 from the paper, the version used by the online
+calculator. Model 3 adds the prior 2-year eGFR slope and improved
+discrimination only slightly, so it is not included.</p>
+</section>
+<section id="the-equation">
+<h2>The equation<a class="headerlink" href="#the-equation" title="Link to this heading"></a></h2>
+<p>For each stratum,</p>
+<div class="math notranslate nohighlight">
+\[p = \frac{1}{1 + e^{-\left(\beta_0 + \sum_i \beta_i x_i\right)}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta_0\)</span> is the stratum’s intercept and each <span class="math notranslate nohighlight">\(x_i\)</span> is a
+predictor after the centering and scaling shown below.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Coefficients by stratum (Grams et al. 2022, Supplemental Table S5)</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 26.0%" />
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Predictor</p></th>
+<th class="head"><p>Centering and scale</p></th>
+<th class="head"><p>eGFR ≥60, no diabetes</p></th>
+<th class="head"><p>eGFR ≥60, diabetes</p></th>
+<th class="head"><p>eGFR &lt;60, no diabetes</p></th>
+<th class="head"><p>eGFR &lt;60, diabetes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Age, per 10 years</p></td>
+<td><p>(age − 60) / 10</p></td>
+<td><p>0.3690</p></td>
+<td><p>0.1465</p></td>
+<td><p>-0.0796</p></td>
+<td><p>-0.1725</p></td>
+</tr>
+<tr class="row-odd"><td><p>Male sex</p></td>
+<td><p>male − 0.5</p></td>
+<td><p>-0.1433</p></td>
+<td><p>-0.2481</p></td>
+<td><p>0.0626</p></td>
+<td><p>-0.1452</p></td>
+</tr>
+<tr class="row-even"><td><p>eGFR, per 5 mL/min/1.73 m²</p></td>
+<td><p>(eGFR − E) / 5 <a class="footnote-reference brackets" href="#e" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></td>
+<td><p>0.0325</p></td>
+<td><p>-0.0562</p></td>
+<td><p>-0.1672</p></td>
+<td><p>-0.0769</p></td>
+</tr>
+<tr class="row-odd"><td><p>uACR</p></td>
+<td><p>ln(uACR / 10)</p></td>
+<td><p>0.4190</p></td>
+<td><p>0.4098</p></td>
+<td><p>0.3915</p></td>
+<td><p>0.4658</p></td>
+</tr>
+<tr class="row-even"><td><p>Systolic BP, per 20 mmHg</p></td>
+<td><p>(SBP − 130) / 20</p></td>
+<td><p>0.3048</p></td>
+<td><p>0.1518</p></td>
+<td><p>0.2373</p></td>
+<td><p>0.2068</p></td>
+</tr>
+<tr class="row-odd"><td><p>Antihypertensive medication</p></td>
+<td><p>1 or 0</p></td>
+<td><p>0.2656</p></td>
+<td><p>0.2846</p></td>
+<td><p>0.0790</p></td>
+<td><p>0.1665</p></td>
+</tr>
+<tr class="row-even"><td><p>SBP × antihypertensive</p></td>
+<td><p>[(SBP − 130) / 20] × (1 or 0)</p></td>
+<td><p>-0.1140</p></td>
+<td><p>-0.0321</p></td>
+<td><p>-0.0214</p></td>
+<td><p>-0.0549</p></td>
+</tr>
+<tr class="row-odd"><td><p>History of heart failure</p></td>
+<td><p>HF − 0.05</p></td>
+<td><p>1.0534</p></td>
+<td><p>0.9234</p></td>
+<td><p>0.4898</p></td>
+<td><p>0.4216</p></td>
+</tr>
+<tr class="row-even"><td><p>History of CHD</p></td>
+<td><p>CHD − 0.15</p></td>
+<td><p>0.4102</p></td>
+<td><p>0.2168</p></td>
+<td><p>0.2343</p></td>
+<td><p>0.2173</p></td>
+</tr>
+<tr class="row-odd"><td><p>History of atrial fibrillation</p></td>
+<td><p>1 or 0</p></td>
+<td><p>0.1140</p></td>
+<td><p>0.3087</p></td>
+<td><p>0.0739</p></td>
+<td><p>0.0456</p></td>
+</tr>
+<tr class="row-even"><td><p>Current smoker</p></td>
+<td><p>1 or 0</p></td>
+<td><p>0.3803</p></td>
+<td><p>0.1186</p></td>
+<td><p>0.2903</p></td>
+<td><p>-0.0338</p></td>
+</tr>
+<tr class="row-odd"><td><p>Former smoker</p></td>
+<td><p>1 or 0</p></td>
+<td><p>0.1862</p></td>
+<td><p>0.0777</p></td>
+<td><p>0.1725</p></td>
+<td><p>0.1386</p></td>
+</tr>
+<tr class="row-even"><td><p>BMI, per 5 kg/m²</p></td>
+<td><p>(BMI − 30) / 5</p></td>
+<td><p>0.0425</p></td>
+<td><p>0.0308</p></td>
+<td><p>-0.0231</p></td>
+<td><p>0.0253</p></td>
+</tr>
+<tr class="row-odd"><td><p>HbA1c (%)</p></td>
+<td><p>HbA1c − 7</p></td>
+<td></td>
+<td><p>0.0987</p></td>
+<td></td>
+<td><p>-0.0031</p></td>
+</tr>
+<tr class="row-even"><td><p>Oral diabetes medication</p></td>
+<td><p>1 or 0</p></td>
+<td></td>
+<td><p>-0.0638</p></td>
+<td></td>
+<td><p>-0.1232</p></td>
+</tr>
+<tr class="row-odd"><td><p>Insulin</p></td>
+<td><p>1 or 0</p></td>
+<td></td>
+<td><p>0.2359</p></td>
+<td></td>
+<td><p>0.0980</p></td>
+</tr>
+<tr class="row-even"><td><p>Intercept</p></td>
+<td></td>
+<td><p>-4.7045</p></td>
+<td><p>-4.2125</p></td>
+<td><p>-3.4540</p></td>
+<td><p>-3.2874</p></td>
+</tr>
+</tbody>
+</table>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="e" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>E = 85 in the eGFR ≥60 strata and 45 in the eGFR &lt;60 strata.</p>
+</aside>
+</aside>
+<p>Every coefficient matches the odds ratios reported in the paper’s Tables 2 and
+3 (<code class="docutils literal notranslate"><span class="pre">exp(β)</span></code> agrees to two decimals), and the package reproduces the online
+calculator in the diabetes strata (eGFR &lt;60 and ≥60).</p>
+</section>
+<section id="the-egfr-60-boundary">
+<h2>The eGFR 60 boundary<a class="headerlink" href="#the-egfr-60-boundary" title="Link to this heading"></a></h2>
+<p>Because the strata are separate models, predicted risk jumps at eGFR 60. For a
+60-year-old man with uACR 10 mg/g, SBP 130 and no other risk factors, the risk
+is 0.64% at eGFR 61 and 1.89% at eGFR 59. Following the CKD-PC website, risk at
+exactly eGFR 60 is the average of the two models.</p>
+</section>
+<section id="what-is-not-implemented">
+<h2>What is not implemented<a class="headerlink" href="#what-is-not-implemented" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Hypertension-based models</strong> (Supplemental Tables S6 and S7) are published
+without intercepts, so absolute risk cannot be computed.</p></li>
+<li><p><strong>30% and 50% decline models</strong> (Supplemental Tables S8 to S11) are also
+published without intercepts.</p></li>
+<li><p><strong>Race and hypertension status</strong> do not appear in the published equation.</p></li>
+<li><p><strong>Risk thresholds</strong> such as “high risk” are not defined in the paper, so the
+package reports probabilities only.</p></li>
+</ul>
+</section>
+<section id="discrimination">
+<h2>Discrimination<a class="headerlink" href="#discrimination" title="Link to this heading"></a></h2>
+<p>Median C statistics of model 2 in the validation cohorts were 0.740 (eGFR ≥60,
+no diabetes), 0.774 (eGFR ≥60, diabetes), 0.750 (eGFR &lt;60, no diabetes) and
+0.769 (eGFR &lt;60, diabetes).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contributors.html" class="btn btn-neutral float-right" title="Contributors/Maintainers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Leon Shpaner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

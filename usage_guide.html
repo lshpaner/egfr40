@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage Guide &mdash; egfr40 0.0.1a3</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f9bb85ce" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=56909cd4"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=fd10adb8"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Input Requirements and Common Pitfalls" href="inputs.html" />
+    <link rel="prev" title="egfr40 quickstart" href="_notebooks/00_quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            egfr40
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-one-individual">Score one individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-a-cohort">Score a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#library-overview">Library overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_notebooks/00_quickstart.html">egfr40 quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#a-small-cohort">1. A small cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#add-a-risk-column-for-every-individual">2. Add a risk column for every individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#what-drives-one-individual-s-risk">3. What drives one individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#top-drivers-for-every-individual">4. Top drivers for every individual</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#single-individual-egfr40-risk">Single individual: <code class="docutils literal notranslate"><span class="pre">egfr40_risk</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explaining-an-individual-s-risk">Explaining an individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cohorts-add-egfr40-risk-col">Cohorts: <code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-five-individuals-one-risk-score-each">Example: five individuals, one risk score each</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Input Requirements and Common Pitfalls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#common-pitfalls">Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="egfr.html">eGFR (CKD-EPI 2021)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="egfr.html#the-equation">The equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conversions.html">uPCR and Dipstick to uACR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#upcr-to-uacr">uPCR to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#dipstick-to-uacr">Dipstick to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#unit-conversion">Unit conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nhanes.html">NHANES Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nhanes.html#how-nhanes-variables-are-coded">How NHANES variables are coded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nhanes.html#prior-work">Prior work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#risk">Risk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.egfr40_risk"><code class="docutils literal notranslate"><span class="pre">egfr40_risk()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.add_egfr40_risk_col"><code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#egfr">eGFR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.ckd_epi_2021"><code class="docutils literal notranslate"><span class="pre">ckd_epi_2021()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#conversions">Conversions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.pcr_to_acr"><code class="docutils literal notranslate"><span class="pre">pcr_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.dipstick_to_acr"><code class="docutils literal notranslate"><span class="pre">dipstick_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.acr_mg_mmol_to_mg_g"><code class="docutils literal notranslate"><span class="pre">acr_mg_mmol_to_mg_g()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.acr_mg_g_to_mg_mmol"><code class="docutils literal notranslate"><span class="pre">acr_mg_g_to_mg_mmol()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About egfr40</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="model.html">The Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model.html#outcome">Outcome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#the-equation">The equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#the-egfr-60-boundary">The eGFR 60 boundary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#what-is-not-implemented">What is not implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#discrimination">Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors/Maintainers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing egfr40</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a3-2026-11-21">Version 0.0.1a3 (2026-11-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a2-2026-11-18">Version 0.0.1a2 (2026-11-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a1-2026-11-18">Version 0.0.1a1 (2026-11-18)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">egfr40</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage_guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<img src="_static/egfr40_logo.svg" alt="egfr40 Python library"
+     width="200" class="egfr40-logo" draggable="false" oncontextmenu="return false;">
+
+           <div itemprop="articleBody">
+             
+  <section id="usage-guide">
+<h1>Usage Guide<a class="headerlink" href="#usage-guide" title="Link to this heading"></a></h1>
+<section id="single-individual-egfr40-risk">
+<h2>Single individual: <code class="docutils literal notranslate"><span class="pre">egfr40_risk</span></code><a class="headerlink" href="#single-individual-egfr40-risk" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">egfr40_risk</span></code> returns the 3-year probability (0 to 1) for one individual.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">egfr40</span><span class="w"> </span><span class="kn">import</span> <span class="n">egfr40_risk</span>
+
+<span class="n">risk</span> <span class="o">=</span> <span class="n">egfr40_risk</span><span class="p">(</span>
+    <span class="n">age</span><span class="o">=</span><span class="mi">58</span><span class="p">,</span> <span class="n">male</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">egfr</span><span class="o">=</span><span class="mi">82</span><span class="p">,</span> <span class="n">uacr</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">sbp</span><span class="o">=</span><span class="mi">138</span><span class="p">,</span> <span class="n">bp_meds</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">hf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">chd</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">afib</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">smoking</span><span class="o">=</span><span class="s2">"current"</span><span class="p">,</span> <span class="n">bmi</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span>
+    <span class="n">dm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hba1c</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">oral_dm</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">insulin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">dm</span></code> is required and has no default. It selects the diabetes or
+no-diabetes model, and leaving it implicit made it too easy to score an
+individual with diabetes using the wrong model. When <code class="docutils literal notranslate"><span class="pre">dm=True</span></code>, <code class="docutils literal notranslate"><span class="pre">hba1c</span></code> is required.</p>
+</section>
+<section id="explaining-an-individual-s-risk">
+<h2>Explaining an individual’s risk<a class="headerlink" href="#explaining-an-individual-s-risk" title="Link to this heading"></a></h2>
+<p>Pass <code class="docutils literal notranslate"><span class="pre">explain=True</span></code> to get a breakdown instead of a single number:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">egfr40_risk</span><span class="p">(</span>
+    <span class="n">age</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">male</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">egfr</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">uacr</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">sbp</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">bp_meds</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">hf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">chd</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">afib</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">smoking</span><span class="o">=</span><span class="s2">"former"</span><span class="p">,</span> <span class="n">bmi</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span>
+    <span class="n">dm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hba1c</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">explain</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">out</span><span class="p">[</span><span class="s2">"risk"</span><span class="p">]</span>              <span class="c1"># 0.166</span>
+<span class="n">out</span><span class="p">[</span><span class="s2">"stratum"</span><span class="p">]</span>           <span class="c1"># 'DM, eGFR &lt;60'</span>
+<span class="n">out</span><span class="p">[</span><span class="s2">"linear_predictor"</span><span class="p">]</span>  <span class="c1"># log-odds</span>
+<span class="n">out</span><span class="p">[</span><span class="s2">"contributions"</span><span class="p">]</span>     <span class="c1"># {'uacr': 1.261, 'chd': 0.185, 'age': -0.172, ...}</span>
+</pre></div>
+</div>
+<p>Each value in <code class="docutils literal notranslate"><span class="pre">contributions</span></code> is that predictor’s effect on the log-odds,
+listed largest first. Positive values raise risk and negative values lower it,
+relative to the model’s reference individual: age 60, uACR 10 mg/g, systolic BP
+130 mmHg, BMI 30 kg/m², and eGFR at the center of its stratum (85 or 45).</p>
+<p>Heart failure and coronary heart disease are centered at 0.05 and 0.15 in the
+published model, so an individual without either still gets a small negative
+contribution for each.</p>
+<p>At exactly eGFR 60 the risk is an average of two models (see <a class="reference internal" href="model.html"><span class="doc">The Model</span></a>), so
+<code class="docutils literal notranslate"><span class="pre">explain=True</span></code> returns both breakdowns under <code class="docutils literal notranslate"><span class="pre">&quot;strata&quot;</span></code>.</p>
+</section>
+<section id="cohorts-add-egfr40-risk-col">
+<h2>Cohorts: <code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code><a class="headerlink" href="#cohorts-add-egfr40-risk-col" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code> adds a risk column to a DataFrame, scoring each row
+with its own stratum.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">egfr40</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_egfr40_risk_col</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_egfr40_risk_col</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">age_col</span><span class="o">=</span><span class="s2">"age"</span><span class="p">,</span> <span class="n">sex_col</span><span class="o">=</span><span class="s2">"sex"</span><span class="p">,</span> <span class="n">egfr_col</span><span class="o">=</span><span class="s2">"eGFR"</span><span class="p">,</span> <span class="n">uacr_col</span><span class="o">=</span><span class="s2">"uACR"</span><span class="p">,</span>
+    <span class="n">sbp_col</span><span class="o">=</span><span class="s2">"sbp"</span><span class="p">,</span> <span class="n">bp_meds_col</span><span class="o">=</span><span class="s2">"bp_meds"</span><span class="p">,</span>
+    <span class="n">hf_col</span><span class="o">=</span><span class="s2">"hf"</span><span class="p">,</span> <span class="n">chd_col</span><span class="o">=</span><span class="s2">"chd"</span><span class="p">,</span> <span class="n">afib_col</span><span class="o">=</span><span class="s2">"afib"</span><span class="p">,</span>
+    <span class="n">smoking_col</span><span class="o">=</span><span class="s2">"smoking"</span><span class="p">,</span> <span class="n">bmi_col</span><span class="o">=</span><span class="s2">"bmi"</span><span class="p">,</span>
+    <span class="n">dm_col</span><span class="o">=</span><span class="s2">"dm"</span><span class="p">,</span> <span class="n">hba1c_col</span><span class="o">=</span><span class="s2">"hba1c"</span><span class="p">,</span>
+    <span class="n">oral_dm_col</span><span class="o">=</span><span class="s2">"oral_dm"</span><span class="p">,</span> <span class="n">insulin_col</span><span class="o">=</span><span class="s2">"insulin"</span><span class="p">,</span>
+    <span class="n">risk_col</span><span class="o">=</span><span class="s2">"egfr40_3year"</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The arguments shown are the defaults, so a DataFrame that already uses these
+column names needs only <code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col(df)</span></code>.</p>
+<section id="example-five-individuals-one-risk-score-each">
+<h3>Example: five individuals, one risk score each<a class="headerlink" href="#example-five-individuals-one-risk-score-each" title="Link to this heading"></a></h3>
+<p>Each row gets its own <code class="docutils literal notranslate"><span class="pre">egfr40_3year</span></code> value, scored with that row’s stratum.
+Individual E is missing systolic BP, so it gets <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>individual           stratum  eGFR  uACR  egfr40_3year  risk_%
+ 0       A  No DM, eGFR &gt;=60    95     8      0.004776     0.5
+ 1       B     DM, eGFR &gt;=60    82    40      0.033876     3.4
+ 2       C   No DM, eGFR &lt;60    42   150      0.149257    14.9
+ 3       D      DM, eGFR &lt;60    40   150      0.166029    16.6
+ 4       E  No DM, eGFR &gt;=60    75    25           NaN     NaN
+</pre></div>
+</div>
+<p>The full example, including each individual’s top risk drivers, is in the
+<a class="reference internal" href="_notebooks/00_quickstart.html"><span class="doc">egfr40 quickstart</span></a> notebook.</p>
+<p>The function:</p>
+<ul class="simple">
+<li><p>accepts text or numeric codes (<code class="docutils literal notranslate"><span class="pre">&quot;male&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;female&quot;</span></code> or 1/0;
+<code class="docutils literal notranslate"><span class="pre">&quot;yes&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;no&quot;</span></code> or 1/0)</p></li>
+<li><p>returns <code class="docutils literal notranslate"><span class="pre">NaN</span></code> for any row with a missing required input, rather than
+guessing</p></li>
+<li><p>requires HbA1c and the diabetes medication columns only for rows with
+diabetes</p></li>
+<li><p>raises an error for unrecognized smoking or yes/no values</p></li>
+<li><p>returns a copy by default (<code class="docutils literal notranslate"><span class="pre">copy=True</span></code>) and leaves the input unchanged</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="_notebooks/00_quickstart.html" class="btn btn-neutral float-left" title="egfr40 quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="inputs.html" class="btn btn-neutral float-right" title="Input Requirements and Common Pitfalls" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Leon Shpaner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

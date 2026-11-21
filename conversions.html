@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>uPCR and Dipstick to uACR &mdash; egfr40 0.0.1a3</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f9bb85ce" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=56909cd4"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=fd10adb8"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="NHANES Example" href="nhanes.html" />
+    <link rel="prev" title="eGFR (CKD-EPI 2021)" href="egfr.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            egfr40
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-one-individual">Score one individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-a-cohort">Score a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#library-overview">Library overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_notebooks/00_quickstart.html">egfr40 quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#a-small-cohort">1. A small cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#add-a-risk-column-for-every-individual">2. Add a risk column for every individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#what-drives-one-individual-s-risk">3. What drives one individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#top-drivers-for-every-individual">4. Top drivers for every individual</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#single-individual-egfr40-risk">Single individual: <code class="docutils literal notranslate"><span class="pre">egfr40_risk</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#explaining-an-individual-s-risk">Explaining an individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#cohorts-add-egfr40-risk-col">Cohorts: <code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage_guide.html#example-five-individuals-one-risk-score-each">Example: five individuals, one risk score each</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Input Requirements and Common Pitfalls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#common-pitfalls">Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="egfr.html">eGFR (CKD-EPI 2021)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="egfr.html#the-equation">The equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">uPCR and Dipstick to uACR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#upcr-to-uacr">uPCR to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dipstick-to-uacr">Dipstick to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unit-conversion">Unit conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nhanes.html">NHANES Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nhanes.html#how-nhanes-variables-are-coded">How NHANES variables are coded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nhanes.html#prior-work">Prior work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#risk">Risk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.egfr40_risk"><code class="docutils literal notranslate"><span class="pre">egfr40_risk()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.add_egfr40_risk_col"><code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#egfr">eGFR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.ckd_epi_2021"><code class="docutils literal notranslate"><span class="pre">ckd_epi_2021()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#conversions">Conversions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.pcr_to_acr"><code class="docutils literal notranslate"><span class="pre">pcr_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.dipstick_to_acr"><code class="docutils literal notranslate"><span class="pre">dipstick_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.acr_mg_mmol_to_mg_g"><code class="docutils literal notranslate"><span class="pre">acr_mg_mmol_to_mg_g()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.acr_mg_g_to_mg_mmol"><code class="docutils literal notranslate"><span class="pre">acr_mg_g_to_mg_mmol()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About egfr40</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="model.html">The Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model.html#outcome">Outcome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#the-equation">The equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#the-egfr-60-boundary">The eGFR 60 boundary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#what-is-not-implemented">What is not implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#discrimination">Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors/Maintainers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing egfr40</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a3-2026-11-21">Version 0.0.1a3 (2026-11-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a2-2026-11-18">Version 0.0.1a2 (2026-11-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a1-2026-11-18">Version 0.0.1a1 (2026-11-18)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">egfr40</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">uPCR and Dipstick to uACR</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/conversions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<img src="_static/egfr40_logo.svg" alt="egfr40 Python library"
+     width="200" class="egfr40-logo" draggable="false" oncontextmenu="return false;">
+
+           <div itemprop="articleBody">
+             
+  <section id="upcr-and-dipstick-to-uacr">
+<h1>uPCR and Dipstick to uACR<a class="headerlink" href="#upcr-and-dipstick-to-uacr" title="Link to this heading"></a></h1>
+<p>The model needs uACR in mg/g. When only a urine protein-to-creatinine ratio
+(uPCR) or a dipstick reading is available, <code class="docutils literal notranslate"><span class="pre">egfr40</span></code> can estimate uACR with
+the crude (unadjusted) equations of Sumida et al. (2020). Grams et al. (2022)
+used the same conversions when developing the model.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Converted values are approximations that carry measurement error. A
+directly measured uACR is preferred when available.</p>
+</div>
+<section id="upcr-to-uacr">
+<h2>uPCR to uACR<a class="headerlink" href="#upcr-to-uacr" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">egfr40</span><span class="w"> </span><span class="kn">import</span> <span class="n">pcr_to_acr</span>
+
+<span class="n">pcr_to_acr</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>          <span class="c1"># uPCR 150 mg/g -&gt; about 32.8 mg/g</span>
+<span class="n">pcr_to_acr</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">500</span><span class="p">])</span>    <span class="c1"># arrays work too</span>
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{uACR} = \exp\Big(\, &amp; 5.3920
+  + 0.3072 \log\left(\min\left(\tfrac{\text{PCR}}{50},\, 1\right)\right) \\
+&amp; + 1.5793 \log\left(\max\left(\min\left(\tfrac{\text{PCR}}{500},\, 1\right),\, 0.1\right)\right) \\
+&amp; + 1.1266 \log\left(\max\left(\tfrac{\text{PCR}}{500},\, 1\right)\right) \Big)
+\end{aligned}\end{split}\]</div>
+<p>with uPCR and uACR in mg/g and natural logarithms. Non-positive or missing uPCR
+returns <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Why this differs from kfre.</strong> Sumida et al. (2020) publish two versions of
+this equation: a crude one (uPCR only) and an adjusted one that adds sex,
+diabetes and hypertension. <code class="docutils literal notranslate"><span class="pre">egfr40</span></code> uses the crude equation because Grams
+et al. (2022) converted uPCR with the unadjusted equation when developing
+the model. The <a class="reference external" href="https://lshpaner.github.io/kfre">kfre</a> library uses the
+adjusted equation, so the same uPCR can give uACR values that differ by
+up to about 20% between the two libraries, depending on the individual.</p>
+</div>
+</section>
+<section id="dipstick-to-uacr">
+<h2>Dipstick to uACR<a class="headerlink" href="#dipstick-to-uacr" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">egfr40</span><span class="w"> </span><span class="kn">import</span> <span class="n">dipstick_to_acr</span>
+
+<span class="n">dipstick_to_acr</span><span class="p">(</span><span class="s2">"++"</span><span class="p">)</span>    <span class="c1"># about 337 mg/g</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Category</p></th>
+<th class="head"><p>Also accepted</p></th>
+<th class="head"><p>Estimated uACR (mg/g)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">negative</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">neg</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>11.9</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trace</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tr</span></code>, <code class="docutils literal notranslate"><span class="pre">+/-</span></code></p></td>
+<td><p>25.2</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1+</span></code></p></td>
+<td><p>66.6</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">++</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2+</span></code></p></td>
+<td><p>337.4</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;++</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+++</span></code>, <code class="docutils literal notranslate"><span class="pre">3+</span></code>, <code class="docutils literal notranslate"><span class="pre">4+</span></code></p></td>
+<td><p>1,228.7</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="unit-conversion">
+<h2>Unit conversion<a class="headerlink" href="#unit-conversion" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">egfr40</span><span class="w"> </span><span class="kn">import</span> <span class="n">acr_mg_mmol_to_mg_g</span><span class="p">,</span> <span class="n">acr_mg_g_to_mg_mmol</span>
+
+<span class="n">acr_mg_mmol_to_mg_g</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>   <span class="c1"># 26.5 mg/g</span>
+<span class="n">acr_mg_g_to_mg_mmol</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>    <span class="c1"># 3.4 mg/mmol</span>
+</pre></div>
+</div>
+<p>1 mg/mmol equals 8.84 mg/g.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="egfr.html" class="btn btn-neutral float-left" title="eGFR (CKD-EPI 2021)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nhanes.html" class="btn btn-neutral float-right" title="NHANES Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Leon Shpaner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

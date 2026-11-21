@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NHANES Example &mdash; egfr40 0.0.1a3</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f9bb85ce" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=56909cd4"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=fd10adb8"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="api.html" />
+    <link rel="prev" title="uPCR and Dipstick to uACR" href="conversions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            egfr40
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-one-individual">Score one individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-a-cohort">Score a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#library-overview">Library overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_notebooks/00_quickstart.html">egfr40 quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#a-small-cohort">1. A small cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#add-a-risk-column-for-every-individual">2. Add a risk column for every individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#what-drives-one-individual-s-risk">3. What drives one individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#top-drivers-for-every-individual">4. Top drivers for every individual</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#single-individual-egfr40-risk">Single individual: <code class="docutils literal notranslate"><span class="pre">egfr40_risk</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#explaining-an-individual-s-risk">Explaining an individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#cohorts-add-egfr40-risk-col">Cohorts: <code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage_guide.html#example-five-individuals-one-risk-score-each">Example: five individuals, one risk score each</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Input Requirements and Common Pitfalls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#common-pitfalls">Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="egfr.html">eGFR (CKD-EPI 2021)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="egfr.html#the-equation">The equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conversions.html">uPCR and Dipstick to uACR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#upcr-to-uacr">uPCR to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#dipstick-to-uacr">Dipstick to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#unit-conversion">Unit conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NHANES Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-nhanes-variables-are-coded">How NHANES variables are coded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prior-work">Prior work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#risk">Risk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.egfr40_risk"><code class="docutils literal notranslate"><span class="pre">egfr40_risk()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.add_egfr40_risk_col"><code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#egfr">eGFR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.ckd_epi_2021"><code class="docutils literal notranslate"><span class="pre">ckd_epi_2021()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#conversions">Conversions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.pcr_to_acr"><code class="docutils literal notranslate"><span class="pre">pcr_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.dipstick_to_acr"><code class="docutils literal notranslate"><span class="pre">dipstick_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.acr_mg_mmol_to_mg_g"><code class="docutils literal notranslate"><span class="pre">acr_mg_mmol_to_mg_g()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#egfr40.acr_mg_g_to_mg_mmol"><code class="docutils literal notranslate"><span class="pre">acr_mg_g_to_mg_mmol()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About egfr40</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="model.html">The Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model.html#outcome">Outcome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#the-equation">The equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#the-egfr-60-boundary">The eGFR 60 boundary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#what-is-not-implemented">What is not implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#discrimination">Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors/Maintainers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing egfr40</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a3-2026-11-21">Version 0.0.1a3 (2026-11-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a2-2026-11-18">Version 0.0.1a2 (2026-11-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a1-2026-11-18">Version 0.0.1a1 (2026-11-18)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">egfr40</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">NHANES Example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nhanes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<img src="_static/egfr40_logo.svg" alt="egfr40 Python library"
+     width="200" class="egfr40-logo" draggable="false" oncontextmenu="return false;">
+
+           <div itemprop="articleBody">
+             
+  <section id="nhanes-example">
+<h1>NHANES Example<a class="headerlink" href="#nhanes-example" title="Link to this heading"></a></h1>
+<p>The repository includes a pipeline that applies the equation to the National
+Health and Nutrition Examination Survey (NHANES) 2017–March 2020 pre-pandemic
+cycle. It lives in the repository, not the installed package.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/lshpaner/egfr40.git
+<span class="nb">cd</span><span class="w"> </span>egfr40
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[nhanes]"</span>
+make<span class="w"> </span>data_gen<span class="w">     </span><span class="c1"># fetch the raw NHANES files into data/raw/</span>
+make<span class="w"> </span>preprocess<span class="w">   </span><span class="c1"># merge, compute eGFR, recode -&gt; data/processed/</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">notebooks/01_score_nhanes.ipynb</span></code> then:</p>
+<ol class="arabic simple">
+<li><p>scores every participant (one <code class="docutils literal notranslate"><span class="pre">egfr40_3year</span></code> value per <code class="docutils literal notranslate"><span class="pre">SEQN</span></code>)</p></li>
+<li><p>shows per-participant scores, including the highest-risk participants</p></li>
+<li><p>produces survey-weighted risk summaries by stratum</p></li>
+<li><p>picks real participants whose inputs sit closest to the online calculator’s
+dropdown values and lists exactly what to enter on
+<a class="reference external" href="https://ckdpcrisk.org/gfrdecline40/">ckdpcrisk.org/gfrdecline40</a>, so the
+package can be checked against the calculator on real data</p></li>
+</ol>
+<section id="how-nhanes-variables-are-coded">
+<h2>How NHANES variables are coded<a class="headerlink" href="#how-nhanes-variables-are-coded" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Input</p></th>
+<th class="head"><p>NHANES source and coding</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>eGFR</p></td>
+<td><p>CKD-EPI 2021 from serum creatinine (<code class="docutils literal notranslate"><span class="pre">LBXSCR</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>uACR</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">URDACT</span></code>, mg/g</p></td>
+</tr>
+<tr class="row-even"><td><p>Systolic BP</p></td>
+<td><p>mean of up to three oscillometric readings (<code class="docutils literal notranslate"><span class="pre">BPXOSY1</span></code>-<code class="docutils literal notranslate"><span class="pre">3</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Antihypertensive medication</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BPQ050A</span></code> (now taking), falling back to <code class="docutils literal notranslate"><span class="pre">BPQ040A</span></code>; people never told
+they have hypertension are coded 0</p></td>
+</tr>
+<tr class="row-even"><td><p>Heart failure</p></td>
+<td><p>self-reported (<code class="docutils literal notranslate"><span class="pre">MCQ160B</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CHD</p></td>
+<td><p>self-reported coronary heart disease (<code class="docutils literal notranslate"><span class="pre">MCQ160C</span></code>) or heart attack
+(<code class="docutils literal notranslate"><span class="pre">MCQ160E</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>Atrial fibrillation</p></td>
+<td><p>not collected in NHANES; set to 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Smoking</p></td>
+<td><p>fewer than 100 lifetime cigarettes = never; smoking now (every day or
+some days) = current; quit = former</p></td>
+</tr>
+<tr class="row-even"><td><p>Diabetes</p></td>
+<td><p>self-reported diagnosis, insulin or diabetes pills, or HbA1c ≥6.5%</p></td>
+</tr>
+</tbody>
+</table>
+<p>The analysis includes adults aged 20 to 80 who are not pregnant, have eGFR ≥15
+and have complete model inputs.</p>
+</section>
+<section id="prior-work">
+<h2>Prior work<a class="headerlink" href="#prior-work" title="Link to this heading"></a></h2>
+<p>The 3-year risk distribution in U.S. adults has already been described with
+NHANES 1999–2020 in <em>Individualized Risk of CKD Progression among US Adults</em>
+(<em>Journal of the American Society of Nephrology</em>,
+<a class="reference external" href="https://doi.org/10.1681/ASN.0000000000000377">doi:10.1681/ASN.0000000000000377</a>). The <code class="docutils literal notranslate"><span class="pre">egfr40</span></code> pipeline reproduces that kind of analysis and is
+intended as a worked, reproducible example.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="conversions.html" class="btn btn-neutral float-left" title="uPCR and Dipstick to uACR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Leon Shpaner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

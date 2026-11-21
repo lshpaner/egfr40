@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; egfr40 0.0.1a3</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f9bb85ce" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=56909cd4"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=fd10adb8"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Model" href="model.html" />
+    <link rel="prev" title="NHANES Example" href="nhanes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            egfr40
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-one-individual">Score one individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#score-a-cohort">Score a cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#library-overview">Library overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_notebooks/00_quickstart.html">egfr40 quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#a-small-cohort">1. A small cohort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#add-a-risk-column-for-every-individual">2. Add a risk column for every individual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#what-drives-one-individual-s-risk">3. What drives one individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_notebooks/00_quickstart.html#top-drivers-for-every-individual">4. Top drivers for every individual</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#single-individual-egfr40-risk">Single individual: <code class="docutils literal notranslate"><span class="pre">egfr40_risk</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#explaining-an-individual-s-risk">Explaining an individual’s risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#cohorts-add-egfr40-risk-col">Cohorts: <code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage_guide.html#example-five-individuals-one-risk-score-each">Example: five individuals, one risk score each</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Input Requirements and Common Pitfalls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html#common-pitfalls">Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="egfr.html">eGFR (CKD-EPI 2021)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="egfr.html#the-equation">The equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conversions.html">uPCR and Dipstick to uACR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#upcr-to-uacr">uPCR to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#dipstick-to-uacr">Dipstick to uACR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversions.html#unit-conversion">Unit conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nhanes.html">NHANES Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nhanes.html#how-nhanes-variables-are-coded">How NHANES variables are coded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nhanes.html#prior-work">Prior work</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#risk">Risk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#egfr40.egfr40_risk"><code class="docutils literal notranslate"><span class="pre">egfr40_risk()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#egfr40.add_egfr40_risk_col"><code class="docutils literal notranslate"><span class="pre">add_egfr40_risk_col()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#egfr">eGFR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#egfr40.ckd_epi_2021"><code class="docutils literal notranslate"><span class="pre">ckd_epi_2021()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#conversions">Conversions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#egfr40.pcr_to_acr"><code class="docutils literal notranslate"><span class="pre">pcr_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#egfr40.dipstick_to_acr"><code class="docutils literal notranslate"><span class="pre">dipstick_to_acr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#egfr40.acr_mg_mmol_to_mg_g"><code class="docutils literal notranslate"><span class="pre">acr_mg_mmol_to_mg_g()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#egfr40.acr_mg_g_to_mg_mmol"><code class="docutils literal notranslate"><span class="pre">acr_mg_g_to_mg_mmol()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About egfr40</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="model.html">The Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model.html#outcome">Outcome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#the-equation">The equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#the-egfr-60-boundary">The eGFR 60 boundary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#what-is-not-implemented">What is not implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#discrimination">Discrimination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors/Maintainers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing egfr40</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a3-2026-11-21">Version 0.0.1a3 (2026-11-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a2-2026-11-18">Version 0.0.1a2 (2026-11-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-0-0-1a1-2026-11-18">Version 0.0.1a1 (2026-11-18)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">egfr40</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<img src="_static/egfr40_logo.svg" alt="egfr40 Python library"
+     width="200" class="egfr40-logo" draggable="false" oncontextmenu="return false;">
+
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<section id="risk">
+<h2>Risk<a class="headerlink" href="#risk" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="egfr40.egfr40_risk">
+<span class="sig-prename descclassname"><span class="pre">egfr40.</span></span><span class="sig-name descname"><span class="pre">egfr40_risk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">male</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">egfr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uacr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp_meds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">afib</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoking</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bmi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hba1c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oral_dm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insulin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">explain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/egfr40/risk.html#egfr40_risk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#egfr40.egfr40_risk" title="Link to this definition"></a></dt>
+<dd><p>3-year probability of a &gt;=40% eGFR decline or kidney failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>age</strong> (<em>float</em>) – Age in years.</p></li>
+<li><p><strong>male</strong> (<em>int</em>) – 1 = male, 0 = female.</p></li>
+<li><p><strong>egfr</strong> (<em>float</em>) – eGFR in mL/min/1.73 m^2, from the CKD-EPI 2021 creatinine equation.</p></li>
+<li><p><strong>uacr</strong> (<em>float</em>) – Urine albumin-to-creatinine ratio in mg/g. Must be greater than 0.</p></li>
+<li><p><strong>sbp</strong> (<em>float</em>) – Systolic blood pressure in mmHg.</p></li>
+<li><p><strong>bp_meds</strong> (<em>int</em>) – Antihypertensive medication use (1/0).</p></li>
+<li><p><strong>hf</strong> (<em>int</em>) – History of heart failure (1/0).</p></li>
+<li><p><strong>chd</strong> (<em>int</em>) – History of coronary heart disease (1/0).</p></li>
+<li><p><strong>afib</strong> (<em>int</em>) – History of atrial fibrillation (1/0).</p></li>
+<li><p><strong>smoking</strong> (<em>{'never'</em><em>, </em><em>'former'</em><em>, </em><em>'current'}</em>) – Smoking status.</p></li>
+<li><p><strong>bmi</strong> (<em>float</em>) – Body mass index in kg/m^2.</p></li>
+<li><p><strong>dm</strong> (<em>bool</em>) – Diabetes. Required: selects the diabetes or no-diabetes model.</p></li>
+<li><p><strong>hba1c</strong> (<em>float</em><em>, </em><em>optional</em>) – HbA1c in percent. Required when <code class="docutils literal notranslate"><span class="pre">dm</span></code> is True.</p></li>
+<li><p><strong>oral_dm</strong> (<em>int</em><em>, </em><em>default 0</em>) – Oral diabetes medication (1/0). Used only when <code class="docutils literal notranslate"><span class="pre">dm</span></code> is True.</p></li>
+<li><p><strong>insulin</strong> (<em>int</em><em>, </em><em>default 0</em>) – Insulin use (1/0). Used only when <code class="docutils literal notranslate"><span class="pre">dm</span></code> is True.</p></li>
+<li><p><strong>explain</strong> (<em>bool</em><em>, </em><em>default False</em>) – Return a breakdown instead of just the risk.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>The 3-year probability, between 0 and 1. At eGFR == 60 the two eGFR
+strata are averaged, as on ckdpcrisk.org.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">explain=True</span></code>, a dict with <code class="docutils literal notranslate"><span class="pre">risk</span></code>, <code class="docutils literal notranslate"><span class="pre">stratum</span></code>,
+<code class="docutils literal notranslate"><span class="pre">intercept</span></code>, <code class="docutils literal notranslate"><span class="pre">linear_predictor</span></code> (log-odds) and <code class="docutils literal notranslate"><span class="pre">contributions</span></code>
+(each predictor’s log-odds contribution, largest first). Positive
+contributions raise risk relative to the reference individual: age 60,
+eGFR at the stratum center (85 or 45), uACR 10 mg/g, SBP 130, BMI 30,
+HbA1c 7%, never smoker, no BP or diabetes medication, and HF and CHD at
+their centering values of 0.05 and 0.15 (so an individual without HF or CHD
+gets a small negative contribution for each). At eGFR == 60, a dict with
+the averaged <code class="docutils literal notranslate"><span class="pre">risk</span></code> and both breakdowns under <code class="docutils literal notranslate"><span class="pre">strata</span></code>.</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or dict</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">hba1c</span></code> is missing for an individual with diabetes, <code class="docutils literal notranslate"><span class="pre">uacr</span></code> is not
+    positive, or <code class="docutils literal notranslate"><span class="pre">smoking</span></code> is not a recognized value.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">egfr40_risk</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">male</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">egfr</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">uacr</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">sbp</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">bp_meds</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">hf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">chd</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">afib</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">smoking</span><span class="o">=</span><span class="s2">"former"</span><span class="p">,</span> <span class="n">bmi</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">dm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hba1c</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">0.166...</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="egfr40.add_egfr40_risk_col">
+<span class="sig-prename descclassname"><span class="pre">egfr40.</span></span><span class="sig-name descname"><span class="pre">add_egfr40_risk_col</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'age'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sex'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">egfr_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eGFR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uacr_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'uACR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbp_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sbp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp_meds_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bp_meds'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hf_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chd_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'chd'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">afib_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'afib'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoking_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'smoking'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bmi_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bmi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dm_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hba1c_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hba1c'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oral_dm_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'oral_dm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insulin_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'insulin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">risk_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'egfr40_3year'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/egfr40/risk.html#add_egfr40_risk_col"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#egfr40.add_egfr40_risk_col" title="Link to this definition"></a></dt>
+<dd><p>Add the 3-year &gt;=40% eGFR decline risk to every row of a DataFrame.</p>
+<p>Each row is scored with its own stratum (eGFR &gt;=60 or &lt;60, with or without
+diabetes). Rows at exactly eGFR 60 get the average of the two eGFR strata,
+as on ckdpcrisk.org.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – One row per individual.</p></li>
+<li><p><strong>age_col</strong> (<em>str</em>) – Column names for age (years), sex, eGFR (CKD-EPI 2021), uACR (mg/g),
+systolic BP (mmHg) and antihypertensive medication use.</p></li>
+<li><p><strong>sex_col</strong> (<em>str</em>) – Column names for age (years), sex, eGFR (CKD-EPI 2021), uACR (mg/g),
+systolic BP (mmHg) and antihypertensive medication use.</p></li>
+<li><p><strong>egfr_col</strong> (<em>str</em>) – Column names for age (years), sex, eGFR (CKD-EPI 2021), uACR (mg/g),
+systolic BP (mmHg) and antihypertensive medication use.</p></li>
+<li><p><strong>uacr_col</strong> (<em>str</em>) – Column names for age (years), sex, eGFR (CKD-EPI 2021), uACR (mg/g),
+systolic BP (mmHg) and antihypertensive medication use.</p></li>
+<li><p><strong>sbp_col</strong> (<em>str</em>) – Column names for age (years), sex, eGFR (CKD-EPI 2021), uACR (mg/g),
+systolic BP (mmHg) and antihypertensive medication use.</p></li>
+<li><p><strong>bp_meds_col</strong> (<em>str</em>) – Column names for age (years), sex, eGFR (CKD-EPI 2021), uACR (mg/g),
+systolic BP (mmHg) and antihypertensive medication use.</p></li>
+<li><p><strong>hf_col</strong> (<em>str</em>) – Column names for history of heart failure, coronary heart disease and
+atrial fibrillation.</p></li>
+<li><p><strong>chd_col</strong> (<em>str</em>) – Column names for history of heart failure, coronary heart disease and
+atrial fibrillation.</p></li>
+<li><p><strong>afib_col</strong> (<em>str</em>) – Column names for history of heart failure, coronary heart disease and
+atrial fibrillation.</p></li>
+<li><p><strong>smoking_col</strong> (<em>str</em>) – Column names for smoking status and BMI (kg/m^2).</p></li>
+<li><p><strong>bmi_col</strong> (<em>str</em>) – Column names for smoking status and BMI (kg/m^2).</p></li>
+<li><p><strong>dm_col</strong> (<em>str</em>) – Column names for diabetes, HbA1c (%), oral diabetes medication and
+insulin. The last three are used only for rows with diabetes and may
+be absent from <code class="docutils literal notranslate"><span class="pre">df</span></code> if no row has diabetes.</p></li>
+<li><p><strong>hba1c_col</strong> (<em>str</em>) – Column names for diabetes, HbA1c (%), oral diabetes medication and
+insulin. The last three are used only for rows with diabetes and may
+be absent from <code class="docutils literal notranslate"><span class="pre">df</span></code> if no row has diabetes.</p></li>
+<li><p><strong>oral_dm_col</strong> (<em>str</em>) – Column names for diabetes, HbA1c (%), oral diabetes medication and
+insulin. The last three are used only for rows with diabetes and may
+be absent from <code class="docutils literal notranslate"><span class="pre">df</span></code> if no row has diabetes.</p></li>
+<li><p><strong>insulin_col</strong> (<em>str</em>) – Column names for diabetes, HbA1c (%), oral diabetes medication and
+insulin. The last three are used only for rows with diabetes and may
+be absent from <code class="docutils literal notranslate"><span class="pre">df</span></code> if no row has diabetes.</p></li>
+<li><p><strong>risk_col</strong> (<em>str</em><em>, </em><em>default &quot;egfr40_3year&quot;</em>) – Name of the new risk column.</p></li>
+<li><p><strong>copy</strong> (<em>bool</em><em>, </em><em>default True</em>) – Work on a copy and leave <code class="docutils literal notranslate"><span class="pre">df</span></code> unchanged.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">df</span></code> (or a copy) with <code class="docutils literal notranslate"><span class="pre">risk_col</span></code> added, holding probabilities
+between 0 and 1.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Sex accepts <code class="docutils literal notranslate"><span class="pre">&quot;male&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;female&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;m&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;f&quot;</span></code> or 1/0. Yes/no
+columns (BP medication, HF, CHD, AFib, diabetes, oral diabetes medication,
+insulin) accept 1/0 or <code class="docutils literal notranslate"><span class="pre">&quot;yes&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;no&quot;</span></code>. Smoking accepts <code class="docutils literal notranslate"><span class="pre">&quot;never&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;former&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;current&quot;</span></code>.</p>
+<p>A row with any required input missing gets <code class="docutils literal notranslate"><span class="pre">NaN</span></code>. HbA1c, oral diabetes
+medication and insulin are required only for rows with diabetes; missing
+values there give <code class="docutils literal notranslate"><span class="pre">NaN</span></code> rather than being treated as 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If a smoking or yes/no column contains an unrecognized value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="egfr">
+<h2>eGFR<a class="headerlink" href="#egfr" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="egfr40.ckd_epi_2021">
+<span class="sig-prename descclassname"><span class="pre">egfr40.</span></span><span class="sig-name descname"><span class="pre">ckd_epi_2021</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">male</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/egfr40/egfr.html#ckd_epi_2021"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#egfr40.ckd_epi_2021" title="Link to this definition"></a></dt>
+<dd><p>eGFR from serum creatinine, using the CKD-EPI 2021 (race-free) equation.</p>
+<p>Inker LA et al. N Engl J Med 2021;385:1737-1749.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scr</strong> (<em>float</em><em> or </em><em>array-like</em>) – Serum creatinine in mg/dL.</p></li>
+<li><p><strong>age</strong> (<em>float</em><em> or </em><em>array-like</em>) – Age in years.</p></li>
+<li><p><strong>male</strong> (<em>int</em><em> or </em><em>array-like</em>) – 1 = male, 0 = female.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>eGFR in mL/min/1.73 m^2. NaN where inputs are missing.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">ckd_epi_2021</span><span class="p">(</span><span class="n">scr</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">male</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">91.7</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="conversions">
+<h2>Conversions<a class="headerlink" href="#conversions" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="egfr40.pcr_to_acr">
+<span class="sig-prename descclassname"><span class="pre">egfr40.</span></span><span class="sig-name descname"><span class="pre">pcr_to_acr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pcr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/egfr40/convert.html#pcr_to_acr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#egfr40.pcr_to_acr" title="Link to this definition"></a></dt>
+<dd><p>Estimate uACR from the urine protein-to-creatinine ratio (uPCR).</p>
+<p>Uses the crude equation of Sumida et al. (2020):
+exp(5.3920 + 0.3072 log(min(PCR/50, 1))
++ 1.5793 log(max(min(PCR/500, 1), 0.1)) + 1.1266 log(max(PCR/500, 1))).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pcr</strong> (<em>float</em><em> or </em><em>array-like</em>) – uPCR in mg/g.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Estimated uACR in mg/g. NaN for missing or non-positive uPCR.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">pcr_to_acr</span><span class="p">(</span><span class="mi">150</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">32.8</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="egfr40.dipstick_to_acr">
+<span class="sig-prename descclassname"><span class="pre">egfr40.</span></span><span class="sig-name descname"><span class="pre">dipstick_to_acr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/egfr40/convert.html#dipstick_to_acr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#egfr40.dipstick_to_acr" title="Link to this definition"></a></dt>
+<dd><p>Estimate uACR from a urine dipstick protein category.</p>
+<p>Uses the crude equation of Sumida et al. (2020).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>category</strong> (<em>str</em><em> or </em><em>list</em><em> of </em><em>str</em>) – <code class="docutils literal notranslate"><span class="pre">&quot;negative&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;trace&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;+&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;++&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;&gt;++&quot;</span></code>. Also
+accepts <code class="docutils literal notranslate"><span class="pre">&quot;neg&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;1+&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;2+&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;3+&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;4+&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;+++&quot;</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Estimated uACR in mg/g. NaN for missing values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or numpy.ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If a category is not recognized.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">dipstick_to_acr</span><span class="p">(</span><span class="s2">"++"</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">337.4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="egfr40.acr_mg_mmol_to_mg_g">
+<span class="sig-prename descclassname"><span class="pre">egfr40.</span></span><span class="sig-name descname"><span class="pre">acr_mg_mmol_to_mg_g</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/egfr40/convert.html#acr_mg_mmol_to_mg_g"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#egfr40.acr_mg_mmol_to_mg_g" title="Link to this definition"></a></dt>
+<dd><p>Convert uACR from mg/mmol to mg/g.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>acr</strong> (<em>float</em><em> or </em><em>array-like</em>) – uACR in mg/mmol.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>uACR in mg/g (1 mg/mmol = 8.84 mg/g).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="egfr40.acr_mg_g_to_mg_mmol">
+<span class="sig-prename descclassname"><span class="pre">egfr40.</span></span><span class="sig-name descname"><span class="pre">acr_mg_g_to_mg_mmol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/egfr40/convert.html#acr_mg_g_to_mg_mmol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#egfr40.acr_mg_g_to_mg_mmol" title="Link to this definition"></a></dt>
+<dd><p>Convert uACR from mg/g to mg/mmol.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>acr</strong> (<em>float</em><em> or </em><em>array-like</em>) – uACR in mg/g.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>uACR in mg/mmol.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nhanes.html" class="btn btn-neutral float-left" title="NHANES Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="model.html" class="btn btn-neutral float-right" title="The Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Leon Shpaner.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

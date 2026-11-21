@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/lshpaner/egfr40/tree/main?tab=MIT-1-ov-file)
 [![Zenodo](https://zenodo.org/badge/DOI/10.5281/zenodo.24350438.svg)](https://doi.org/10.5281/zenodo.24350438)
 
-`egfr40` is a Python library designed to estimate the 3-year risk of a ≥40% decline in estimated glomerular filtration rate (eGFR) or kidney failure, using the risk equation developed by Grams et al. for the CKD Prognosis Consortium (CKD-PC). Unlike risk equations restricted to patients with established chronic kidney disease (CKD), this model applies to the general population, with or without CKD. It is stratified by diabetes status and eGFR (≥60 or <60 mL/min/1.73 m²), and reproduces the [ckdpcrisk.org/gfrdecline40](https://ckdpcrisk.org/gfrdecline40/) calculator. The library is tailored for healthcare professionals and researchers, supporting risk predictions for individual patients or entire cohorts.
+`egfr40` is a Python library designed to estimate the 3-year risk of a ≥40% decline in estimated glomerular filtration rate (eGFR) or kidney failure, using the risk equation developed by Grams et al. for the CKD Prognosis Consortium (CKD-PC). Unlike risk equations restricted to patients with established chronic kidney disease (CKD), this model applies to the general population, with or without CKD. It is stratified by diabetes status and eGFR (≥60 or <60 mL/min/1.73 m²). Every coefficient matches the odds ratios published in the paper, and the risks match the [ckdpcrisk.org/gfrdecline40](https://ckdpcrisk.org/gfrdecline40/) calculator in the diabetes models. The library is built for researchers, scoring one patient at a time or whole cohorts.
 
 > **Not affiliated with the CKD Prognosis Consortium.** This is an independent implementation of a published equation, intended for research use. It is not a medical device and should not be used to make clinical decisions.
 
@@ -144,7 +144,7 @@ If you use `egfr40` in your research or projects, please consider citing it, alo
       month        = nov,
       year         = 2026,
       publisher    = {Zenodo},
-      version      = {0.0.1a2},
+      version      = {0.0.1a3},
       doi          = {10.5281/zenodo.24350438},
       url          = {https://doi.org/10.5281/zenodo.24350438}
     }

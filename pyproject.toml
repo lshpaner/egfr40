@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "egfr40"
-version = "0.0.1a2"
+version = "0.0.1a3"
 description = "CKD-PC risk equation for a >=40% eGFR decline or kidney failure over 2-3 years (Grams et al., Diabetes Care 2022)"
 readme = "README.md"
 license = "MIT"

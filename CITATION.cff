@@ -6,7 +6,7 @@ authors:
   - family-names: Shpaner
     given-names: Leonid
     orcid: "https://orcid.org/0009-0007-5311-8095"
-version: 0.0.1a2
+version: 0.0.1a3
 doi: "10.5281/zenodo.24350438"
 identifiers:
   - type: doi

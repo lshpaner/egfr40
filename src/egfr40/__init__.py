@@ -24,13 +24,13 @@ Not affiliated with the CKD Prognosis Consortium. For research use only.
 PyPI: https://pypi.org/project/egfr40/
 GitHub: https://github.com/lshpaner/egfr40
 
-Version: 0.0.1a2
+Version: 0.0.1a3
 
 """
 
 __author__ = "Leonid Shpaner"
 __email__ = "lshpaner@ucla.edu"
-__version__ = "0.0.1a2"
+__version__ = "0.0.1a3"
 
 
 # Define the custom help function

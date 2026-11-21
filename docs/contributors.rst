@@ -23,7 +23,7 @@ Contributors/Maintainers
 `Leon Shpaner (publishes academically as Leonid Shpaner) <https://github.com/lshpaner>`_ is a data scientist working on risk prediction models.
 With over a decade of experience in analytics and teaching, he has collaborated
 on a wide variety of projects within financial services, education, personal
-development, and healthcare. He is a `lecturer of Probability and Statistics for the University of San Diego's M.S. Applied Artificial Intelligence program <https://onlinedegrees.sandiego.edu/faculty/leon-shpaner/>`_.
+development, and healthcare. He is also a `lecturer of Probability and Statistics for the University of San Diego's M.S. Applied Artificial Intelligence program <https://onlinedegrees.sandiego.edu/faculty/leon-shpaner/>`_.
 
 .. raw:: html
 
